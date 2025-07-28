@@ -1,0 +1,186 @@
+/*
+* Syne iOS Fallback - Weight: 400, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback iOS';
+    src: local('SF Pro'), local('.SFNS-Regular');
+    ascent-override: 95.68%;
+    descent-override: 130.37%;
+    size-adjust: 48.08%;
+    line-gap-override: 100%;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+* Syne iOS Fallback - Weight: 700, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback iOS';
+    src: local('SF Pro'), local('.SFNS-Regular');
+    ascent-override: 95.68%;
+    descent-override: 130.37%;
+    size-adjust: 48.08%;
+    line-gap-override: 100%;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*
+* Syne Android Fallback - Weight: 400, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback Android';
+    src: local('Roboto'), local('Roboto-Regular');
+    ascent-override: 99.71%;
+    descent-override: 112.64%;
+    size-adjust: 46.21%;
+    line-gap-override: 100%;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+* Syne Android Fallback - Weight: 700, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback Android';
+    src: local('Roboto'), local('Roboto-Regular');
+    ascent-override: 99.71%;
+    descent-override: 112.64%;
+    size-adjust: 46.21%;
+    line-gap-override: 100%;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*
+* Syne Windows Fallback - Weight: 400, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback Windows';
+    src: local('Arial'), local('ArialMT');
+    ascent-override: 102.18%;
+    descent-override: 129.77%;
+    size-adjust: 47.08%;
+    line-gap-override: normal;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+* Syne Windows Fallback - Weight: 700, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback Windows';
+    src: local('Arial'), local('ArialMT');
+    ascent-override: 102.18%;
+    descent-override: 129.77%;
+    size-adjust: 47.08%;
+    line-gap-override: normal;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*
+* Syne macOS Fallback - Weight: 400, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback macOS';
+    src: local('Helvetica Neue'), local('HelveticaNeue');
+    ascent-override: 97.16%;
+    descent-override: 129.11%;
+    size-adjust: 96.71%;
+    line-gap-override: 100%;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+* Syne macOS Fallback - Weight: 700, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback macOS';
+    src: local('Helvetica Neue'), local('HelveticaNeue');
+    ascent-override: 97.16%;
+    descent-override: 129.11%;
+    size-adjust: 96.71%;
+    line-gap-override: 100%;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*
+* Syne Linux Fallback - Weight: 400, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback Linux';
+    src: local('DejaVu Sans'), local('DejaVuSans');
+    ascent-override: 99.65%;
+    descent-override: 116.6%;
+    size-adjust: 47.08%;
+    line-gap-override: 100%;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*
+* Syne Linux Fallback - Weight: 700, Style: normal
+* Subsets: greek, latin, latin-ext
+*/
+@font-face {
+    font-family: 'Syne Fallback Linux';
+    src: local('DejaVu Sans'), local('DejaVuSans');
+    ascent-override: 99.65%;
+    descent-override: 116.6%;
+    size-adjust: 47.08%;
+    line-gap-override: 100%;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/*
+* Main font: syne/syne-regular
+*/
+@font-face {
+    font-family: 'Syne';
+    src: url('https://minio.herd.test/fonts/syne/syne-regular.woff2') format('woff2'),
+    url('https://minio.herd.test/fonts/syne/syne-regular.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF, U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/*
+* Main font: syne/syne-700
+*/
+@font-face {
+    font-family: 'Syne';
+    src: url('https://minio.herd.test/fonts/syne/syne-700.woff2') format('woff2'),
+    url('https://minio.herd.test/fonts/syne/syne-700.ttf') format('truetype');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF, U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* Utility class */
+.font-syne {
+    font-family: 'Syne', 'Syne-iOS-Fallback', 'Syne-Android-Fallback', 'Syne-Windows-Fallback', 'Syne-macOS-Fallback', 'Syne-Linux-Fallback', system-ui, sans-serif, var(--system-ui);
+}

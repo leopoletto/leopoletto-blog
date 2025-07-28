@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Migrate Passwords from a Legacy PHP App to Laravel</title>
+    <link rel="canonical" href="https://jigsaw.test/blog"/>
+    <meta name="description" content="Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms.">
+    <meta name="author" content="Leonardo Poletto">
+
+    <meta name="msapplication-TileColor" content="#0a0033">
+    <meta name="theme-color" content="#0a0033">
+    <meta property="og:title" content="Migrate Passwords from a Legacy PHP App to Laravel"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://jigsaw.test/blog"/>
+    <meta property="og:locale" content="en"/>
+            <meta property="og:image" content="https://jigsaw.test/assets/images/og/migrate-legacy-passwords-to-laravel.webp"/>
+        <meta property="og:logo" content="https://jigsaw.test/assets/images/img/leopoleto.webp"/>
+        <meta property="og:image:alt" content="Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms."/>
+        <meta property="og:description" content="Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms."/>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@leopoletto">
+    <meta name="twitter:id" content="@leopoletto">
+    <meta name="twitter:creator" content="@leopoletto.com">
+    <meta name="twitter:domain" content="leopoletto.com">
+    <meta name="twitter:url" content="https://jigsaw.test/blog">
+    <meta name="twitter:title" content="Migrate Passwords from a Legacy PHP App to Laravel">
+    <meta name="twitter:text:title" content="Migrate Passwords from a Legacy PHP App to Laravel">
+    <meta name="twitter:description" content="Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms.">
+            <meta name="twitter:image" content="https://jigsaw.test/assets/images/og/migrate-legacy-passwords-to-laravel.webp">
+        <meta name="twitter:alt" content="https://jigsaw.test/assets/images/og/migrate-legacy-passwords-to-laravel.webp">
+        <link href="https://jigsaw.test/blog/feed.atom" type="application/atom+xml" rel="alternate"
+          title="Leonardo Poletto Atom Feed">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jigsaw.test/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jigsaw.test/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jigsaw.test/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://jigsaw.test/favicon/site.webmanifest">
+    <link rel="mask-icon" href="https://jigsaw.test/favicon/safari-pinned-tab.svg" color="#0a0033">
+    <link rel="home" href="https://jigsaw.test">
+
+    <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/jetbrains-mono.css">
+    <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/syne.css">
+    <link rel="stylesheet" href="/assets/build/assets/main-K5ofviup.css">
+
+    <style>
+        .prose a[href^="http"]:not([href*="https://jigsaw.test/"])::after {
+            opacity: 0.7;
+            margin-left: 0.25rem;
+            font-size: 1rem;
+            color: var(--color-brand-primary-100);
+            content: '↗';
+        }
+    </style>
+
+    <script defer type="module" src="/assets/build/assets/main-Dg3DB18v.js"></script>
+</head>
+<body class="min-h-screen bg-gray-50">
+<header x-data="{ light: false, wave: false }" class="py-10 flex items-center bg-brand-secondary-600/20 border-b border-b-brand-secondary-400">
+    <div class="container items-center mx-auto flex max-w-7xl flex-col gap-2 md:flex-row md:gap-10">
+        <div class="border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
+            <a href="https://jigsaw.test"
+               :class="{'motion-safe:animate-insight': light}"
+               class="relative z-30 rounded-2xl self-baseline md:block md:w-fit md:overflow-clip">
+                <img alt="A detailed headshot of a man with dark hair, light eyes, and stubble, wearing a black turtleneck and looking directly at the camera with a calm expression"
+                     class="-scale-x-100 w-[200px] rounded-2xl md:w-[200px] md:min-w-[200px]"
+                     src="https://jigsaw.test/assets/img/profile-q90-w240.webp"/>
+            </a>
+            <span class="transition-all backdrop-blur-md backdrop-saturate-150 backdrop-xs backdrop-brightness-200 w-full aspect-square absolute left-0 top-0 z-20"></span>
+            <span class="bg-[url('/assets/img/profile-q90-w240.webp')] bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
+        </div>
+        <div class="w-fit">
+            <span>
+                <a class="font-semibold text-brand-secondary-100 text-3xl font-serif"
+                   href="https://jigsaw.test">Leonardo Poletto</a>
+            </span>
+            <div class="mt-5 description">
+                <p class="max-w-4xl">Hi there <span :class="{'inline-block motion-safe:animate-wave': wave}">👋</span>,
+    I’m a technologist focused on web standards, accessibility,
+    performance, privacy, and digital ethics. Building Foundations for a Better Web </p>                <nav class="mt-4 mb-0 flex items-center gap-5">
+    <ul class="flex gap-5">
+        <li>
+            <a href="https://github.com/leopoletto/"
+               class="text-brand-secondary-100 hover:text-brand-accent-300">
+                <svg xmlns="http://www.w3.org/2000/svg"
+     fill="currentColor" height="20" class="h-5"
+     viewBox="0 0 16 16">
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+</svg>            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/leopoletto/"
+               class="text-brand-secondary-100 hover:text-brand-accent-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="20" class="h-5" viewBox="0 0 16 16">
+    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+</svg>            </a>
+        </li>
+        <li>
+            <a href="https://x.com/leopoletto">
+                <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" height="20" class="h-5 stroke-brand-secondary-100 hover:stroke-brand-accent-300 fill-brand-secondary-100 hover:fill-brand-accent-300" viewBox="0 0 24 24"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="2">
+    <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
+    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+</svg>            </a>
+        </li>
+        <li>
+            <a href="https://jigsaw.test/blog/feed.atom" class="text-brand-secondary-600 hover:text-brand-accent-700">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"fill="currentColor" height="20" class="h-5 text-brand-secondary-100 hover:text-brand-accent-300" >
+    <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+    <path stroke="currentColor" d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
+</svg>            </a>
+        </li>
+    </ul>
+    <ul class="flex gap-5 ml-3">
+                            <li>
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-accent-200 underline-offset-8" href="https://jigsaw.test/blog/about" @mouseenter.stop="wave = true" @mouseleave.stop="wave = false" title="About Leonardo Poletto"
+    >
+    About
+</a>                            </li>
+                            <li>
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-accent-200 underline-offset-8" href="https://jigsaw.test/pages/insights" @mouseenter.stop="light = true" @mouseleave.stop="light = false" title="Research & Insights"
+    >
+    Research & Insights
+</a>                            </li>
+                            <li>
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-accent-200 underline-offset-8" href="https://jigsaw.test/tools-and-open-source" title="Learn more about tools"
+    >
+    Tools & Open Source
+</a>                            </li>
+                        </ul>
+</nav>            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container mx-auto w-full max-w-7xl flex-auto overflow-hidden">
+        <article class="container mx-auto w-full max-w-7xl my-16" id="read">
+        <div class="max-w-4xl mx-auto">
+            <section class="w-full">
+                <header class="flex flex-col gap-10 mb-10">
+    <div class="flex md:items-base flex-col gap-4 md:flex-row border-b pb-2 border-gray-300">
+        <span class="flex">
+            <span class="flex gap-8 items-base justify-center">
+                            <a href="https://jigsaw.test/categories/tutorials" title="View posts in tutorials"
+                   class="uppercase text-base font-mono text-brand-secondary-100  after:flex  after:content-['✦'] after:text-brand-secondary-200 after:text-xl last:after:content-[''] relative after:absolute after:-top-1 after:-right-6"
+                >tutorials</a>
+                        </span>
+        </span>
+        <span class="flex gap-3 text-base md:justify-between md:ml-auto pl-3 border-gray-300 items-center text-gray-800">
+            <time datetime="2024-12-11" class="mb-0 font-mono">December 11, 2024</time>
+            <span class="flex gap-2 font-mono items-center before:content-['✦'] before:text-brand-secondary-400 before:pr-1">
+                6 minutes  read
+            </span>
+        </span>
+    </div>
+    <div class="px-6 md:px-0 flex flex-col gap-4">
+        <h1 class="font-serif  tracking-tight font-semibold text-brand-secondary-100 text-3xl md:text-4xl leading-snug">Migrate Passwords from a Legacy PHP App to Laravel</h1>
+        <p class="text-lg font-light text-gray-800 data-label:before:content-[attr(data-label)] before:font-serif  before:text-brand-secondary-200 before:uppercase before:text-base before:font-semibold before:tracking-wider gap-2 leading-relaxed"
+           data-label="Quick Summary: ">Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms.
+        </p>
+    </div>
+</header>
+                                    <picture>
+                        <img src="/assets/images/posts/migrate-legacy-passwords-to-laravel.webp" class="w-full max-w-4xl mx-auto rounded"
+                             alt=""/>
+                    </picture>
+                
+                <section class="mt-10 mb-8 px-6 md:px-0 prose">
+                    <p>Migrating a legacy PHP application to Laravel will probably require a custom hashing driver.</p>
+
+<p>This happens because <a href="https://laravel.com/docs/10.x/hashing">Laravel’s default hashing driver</a> is <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a> and has <a href="https://en.wikipedia.org/wiki/Argon2">argon</a> as another built-in option, while <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, and <code>SHA-512</code> were and still are widely used, especially when the application does not rely on a modern framework.</p>
+
+<p>Considering that we already have a table storing the hashed passwords, we need to make Laravel use the correct hash algorithm to compare the users’ raw passwords when authenticating.</p>
+
+<h2>Create a custom hash drive on Laravel</h2>
+
+<p>It should implement the <a href="https://laravel.com/api/10.x/Illuminate/Contracts/Hashing/Hasher.html"><code>Illuminate\Contracts\Hashing\Hasher</code></a> 
+interface and extend the <a href="https://laravel.com/api/10.x/Illuminate/Hashing/AbstractHasher.html"><code>Illuminate\Hashing\AbstractHasher</code></a> class:</p>
+
+<p><em><code>app/Hashing/Md5Hasher.php</code></em></p>
+
+<pre><code class="language-php">namespace App\Hashing;
+
+use Illuminate\Contracts\Hashing\Hasher;
+use Illuminate\Hashing\AbstractHasher;
+
+class Md5Hasher extends AbstractHasher implements Hasher
+{
+    public function make($value, array $options = []): string
+    {
+        return md5($value . config('hashing.md5.salt'));
+    }
+
+    public function check($value, $hashedValue, array $options = []): bool
+    {
+        return $this-&gt;make($value) === $hashedValue;
+    }
+
+    public function needsRehash($hashedValue, array $options = []): bool
+    {
+        return false;
+    }
+}
+</code></pre>
+
+<h2>Register the new driver in your application</h2>
+
+<p>Register it in the <code>boot</code> method of the following class:</p>
+
+<p><em><code>app/Providers/AuthServiceProvider.php</code></em></p>
+
+<pre><code class="language-php">namespace App\Providers;
+
+use App\Hashing\Md5Hasher;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    // ...
+
+    public function boot(): void
+    {
+        // ...
+
+        Hash::extend('md5', static function () {
+            return new Md5Hasher();
+        });
+    }
+}
+</code></pre>
+
+<h2>Define the hashing SALT (Optional)</h2>
+
+<p>Your legacy application may use a SALT to concatenate before hashing the password. We can define it in the config and delegate its value to the <code>.env</code> file.
+If your legacy application does not use SALT, you won't need to add it to the <code>.env</code> file.</p>
+
+<p><em><code>config/hashing.php</code></em></p>
+
+<pre><code class="language-php">return [
+    // ...
+
+    'md5' =&gt; [
+        'salt' =&gt; env('MD5_SALT'),
+    ],
+];
+</code></pre>
+
+<p><em><code>.env</code></em></p>
+
+<pre><code class="language-dsconfig">MD5_SALT=my_salt
+</code></pre>
+
+<h2>Update the passwords</h2>
+
+<p>To rehash the password, we can intercept the users' attempts to login and check if the <code>MD5</code> hashed password matches the one in the database. 
+We can do that by listening to the <a href="https://laravel.com/api/10.x/Illuminate/Auth/Events/Attempting.html"><code>Illuminate\Auth\Events\Attempting::class</code></a> event.</p>
+
+<pre><code class="language-shell">php artisan make:listener UpdateMd5Password
+</code></pre>
+
+<p><em><code>app/Providers/EventServiceProvider.php</code></em></p>
+
+<pre><code class="language-php">class EventServiceProvider extends ServiceProvider
+{
+    //...
+
+    protected $listen = [
+
+        //...
+
+        'Illuminate\Auth\Events\Attempting::class' =&gt; [
+            'App\Listeners\UpdateMd5Password::class',
+        ],
+    ];
+
+    //...
+}
+</code></pre>
+
+<p>The following implementation checks if the credentials match the legacy algorithm (<code>MD5</code>) and update to the new one. 
+The authentication flow continues, and the user will be successfully authenticated using the default driver (<code>bcrypt</code>).</p>
+
+<p><em><code>app/Listeners/UpdateSha1Password.php</code></em></p>
+
+<pre><code class="language-php">namespace App\Listeners;
+
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+class UpdateMd5Password
+{
+    public function handle(object $event): void
+    {
+        $user = User::where('email', $event-&gt;credentials['email'])-&gt;first();
+
+        $md5Password = Hash::driver('md5')-&gt;make($event-&gt;credentials['password']);
+
+        if ($user &amp;&amp; $user-&gt;getAuthPassword() === $md5Password) {
+            $user-&gt;password = Hash::make($event-&gt;credentials['password']);
+            $user-&gt;save();
+        }
+    }
+}
+</code></pre>
+
+<h2>In closing</h2>
+
+<p>You may have another hashing algorithm on your legacy PHP application. You can make the necessary changes to achieve the same behavior.</p>
+
+<p><a href="https://twitter.com/leopoletto/status/1669682506633715712">Join the discussion on Twitter.</a></p>
+                </section>
+            </section>
+        </div>
+    </article>
+</main>
+
+<footer class="px-6 py-6 text-center bg-brand-secondary-100 md:px-0">
+    <ul class="flex gap-5 justify-center items-center">
+        <li class="text-base text-white after:content-['✦'] after:text-base after:ml-5">
+            No tracking. No cookies. Just content.
+        </li>
+        <li class="text-base text-white">
+            Built with purpose. Maintained with integrity.
+        </li>
+    </ul>
+</footer>
+</body>
+</html>

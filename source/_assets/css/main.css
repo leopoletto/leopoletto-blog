@@ -1,0 +1,263 @@
+@import 'highlight.js/styles/github.min.css';
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer base, theme, utilities;
+
+@theme {
+    --font-sans: "Syne", sans-serif;
+    --font-serif: "Syne", sans-serif;
+    --font-mono: "JetBrains Mono", mono;
+
+    --color-brand-primary-100: #0a1a2b;
+    --color-brand-primary-200: #173d64;
+    --color-brand-primary-300: #255f9d;
+    --color-brand-primary-400: #3882d1;
+    --color-brand-primary-500: #71a6de;
+
+    --color-brand-secondary-100: #161676;
+    --color-brand-secondary-200: #2020ac;
+    --color-brand-secondary-300: #4747dd;
+    --color-brand-secondary-400: #9292eb;
+    --color-brand-secondary-500: #dcdcf8;
+    --color-brand-secondary-600: #e8e8ff;
+
+    --color-brand-accent-100: #274324;
+    --color-brand-accent-200: #3f6d3a;
+    --color-brand-accent-300: #56954f;
+    --color-brand-accent-400: #75b26f;
+    --color-brand-accent-500: #9cc897;
+    --color-brand-accent-600: #c2ddbf;
+    --color-brand-accent-700: #ddf1db;
+
+    --animate-wave: wave 1.9s ease-in-out infinite ;
+    --animate-insight: insight 1s ease-in-out forwards;
+
+    @keyframes wave {
+        0% {
+            transform: rotate(0.0deg)
+        }
+        10% {
+            transform: rotate(14.0deg)
+        }
+        20% {
+            transform: rotate(-8.0deg)
+        }
+        30% {
+            transform: rotate(14.0deg)
+        }
+        40% {
+            transform: rotate(-4.0deg)
+        }
+        50% {
+            transform: rotate(10.0deg)
+        }
+        60% {
+            transform: rotate(0.0deg)
+        }
+        100% {
+            transform: rotate(0.0deg)
+        }
+    }
+
+    @keyframes insight {
+        0% {
+            filter: saturate(100%) brightness(100%)
+        }
+        10% {
+            filter: saturate(105%) brightness(100.5%)
+        }
+        20% {
+            filter: saturate(110%) brightness(101%)
+        }
+        30% {
+            filter: saturate(115%) brightness(101.5%)
+        }
+        40% {
+            filter: saturate(120%) brightness(102%)
+        }
+        50% {
+            filter: saturate(130%) brightness(103%)
+        }
+        60% {
+            filter: saturate(140%) brightness(104%)
+        }
+        100% {
+            filter: saturate(150%) brightness(105%)
+        }
+    }
+}
+
+
+@layer components {
+    .prose {
+        a {
+            @apply no-underline;
+            @apply text-brand-secondary-100;
+            @apply hover:text-brand-secondary-300;
+        }
+
+        [v-pre] a {
+            @apply no-underline;
+            @apply border-b;
+            @apply font-normal;
+            @apply border-blue-700;
+            @apply text-blue-700;
+            @apply hover:text-blue-900;
+        }
+
+        blockquote {
+            @apply w-full pl-10 md:px-10 text-gray-800 mt-12 mb-8;
+
+            & > p {
+                @apply leading-relaxed pt-0 text-xl text-gray-800 relative;
+                @apply before:content-['“'] before:text-7xl before:text-brand-secondary-300;
+                @apply before:absolute before:-top-2 before:-left-8;
+
+                & > em {
+                    @apply text-base text-gray-700 block pt-2;
+                }
+            }
+        }
+
+        pre:has(code.hljs) {
+            @apply rounded border border-brand-secondary-400 mb-10;
+        }
+
+        code.hljs {
+            @apply text-base leading-loose rounded bg-brand-primary-100;
+
+            & .hljs-comment,
+            & .hljs-keyword,
+            & .hljs-meta {
+                @apply font-normal not-italic;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply mt-8 mb-2 font-medium font-serif text-brand-primary-100;
+
+            &:first-child {
+                @apply mt-0;
+            }
+        }
+
+        h1 {
+            @apply text-5xl text-brand-secondary-200;
+        }
+
+        h2 {
+            @apply mt-10 mb-2 text-[28px] leading-normal text-brand-secondary-100;
+        }
+
+        h3 {
+            @apply text-[22px] text-brand-secondary-200;
+        }
+
+        h4, h5, h6 {
+            @apply text-lg;
+        }
+
+        hr {
+            @apply my-12 border-b border-gray-200 rounded-full;
+        }
+
+        ol,
+        ul {
+            @apply my-5 ml-5;
+
+            & > li {
+                @apply leading-relaxed text-lg my-1 text-gray-800 ;
+            }
+        }
+
+
+        ol {
+            @apply list-decimal;
+        }
+
+        ul {
+            @apply list-disc;
+        }
+
+        img {
+            @apply max-w-4xl w-full mx-auto mb-5 inline-block;
+        }
+
+        p {
+            @apply mb-2 text-gray-800  text-lg leading-relaxed pt-5 mt-2;
+
+            & > code {
+                @apply text-base text-brand-primary-100 break-words bg-brand-secondary-500 py-0.5 px-1 rounded;
+            }
+
+            & > strong {
+                @apply font-medium;
+            }
+
+            &:has(em code) {
+                @apply -mb-3.5 relative w-full;
+
+                @container md {
+                    @apply ml-0.5 w-full;
+                }
+            }
+
+            & > em:has(code) {
+                @apply not-italic relative;
+            }
+
+            & > em code {
+                @apply rounded-b-none rounded-tl-none rounded-tr-md bg-gray-200 text-brand-secondary-100 -top-0.5  z-10 relative text-base p-2 px-4 box-border break-words;
+            }
+
+            & > em code::before,
+            & > em code::after {
+                content: "";
+            }
+        }
+
+
+        pre {
+            @apply p-3 bg-white mb-6 mt-4 text-base border-1 border-brand-secondary-400 leading-loose  overflow-x-auto shadow-sm w-full relative;
+
+            & code {
+                @apply block p-0 bg-transparent rounded-none text-base;
+            }
+
+            @container md {
+                @apply rounded-lg w-full ml-0;
+            }
+        }
+
+        .hljs-title {
+            @apply !font-normal !not-italic
+        }
+    }
+
+    .description p {
+        @apply text-lg leading-loose text-brand-secondary-200;
+
+
+        & > a {
+            @apply text-brand-secondary-100 underline underline-offset-4 hover:text-brand-accent-300
+        }
+
+        &:last-child {
+            @apply mb-0;
+
+            @container md {
+                @apply mb-0;
+            }
+        }
+    }
+}
+

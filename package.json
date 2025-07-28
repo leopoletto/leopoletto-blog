@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build && vendor/bin/jigsaw build"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4.1.10",
+        "@tighten/jigsaw-vite-plugin": "^1.0.0",
+        "highlight.js": "^11.11.1",
+        "tailwindcss": "^4.1.10",
+        "vite": "^6.3.5"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.10",
+        "alpinejs": "^3.14.9"
+    }
+}

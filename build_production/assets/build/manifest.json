@@ -1,0 +1,13 @@
+{
+  "source/_assets/css/main.css": {
+    "file": "assets/main-K5ofviup.css",
+    "src": "source/_assets/css/main.css",
+    "isEntry": true
+  },
+  "source/_assets/js/main.js": {
+    "file": "assets/main-Dg3DB18v.js",
+    "name": "main",
+    "src": "source/_assets/js/main.js",
+    "isEntry": true
+  }
+}
