@@ -6,7 +6,7 @@
     'links' => $links,
  ])
 <nav class="mt-4 mb-0 flex items-center gap-5">
-    <ul class="flex gap-5">
+    <ul class="flex gap-3 md:gap-5">
         <li>
             <a href="{{ $github }}"
                class="text-brand-secondary-100 hover:text-brand-accent-300">

@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/mozilla-headline.css">
     <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/mozilla-text.css">
 
-        <link rel="stylesheet" href="/assets/build/assets/main-Dbu6bPEM.css">
+        <link rel="stylesheet" href="/assets/build/assets/main-t3DHKR3E.css">
     <style>
         .prose a[href^="http"]:not([href*="https://jigsaw.test/"])::after {
             opacity: 0.7;
@@ -59,9 +59,9 @@
     <script defer type="module" src="/assets/build/assets/main-Dg3DB18v.js"></script>
 </head>
 <body class="min-h-screen bg-white font-sans">
-<header x-data="{ light: false, wave: false }" class="py-10 flex items-center ">
-    <div class="container items-center mx-auto flex max-w-7xl flex-col gap-2 md:flex-row md:gap-10">
-        <div class="border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
+<header x-data="{ light: true, wave: false }" class="py-10 px-5 flex items-center">
+    <div class="container items-center justify-around mx-auto flex max-w-4xl flex-col gap-2 md:flex-row md:gap-10">
+        <div class="hidden md:block border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
             <a href="https://jigsaw.test"
                :class="{'motion-safe:animate-insight': light}"
                class="relative z-30 rounded-2xl self-baseline md:block md:w-fit md:overflow-clip">
@@ -69,19 +69,17 @@
                      class="-scale-x-100 w-[200px] rounded-2xl md:w-[200px] md:min-w-[200px]"
                      src="https://jigsaw.test/assets/img/profile-q90-w240.webp"/>
             </a>
-            <span class="transition-all backdrop-blur-md backdrop-saturate-150 backdrop-xs backdrop-brightness-200 w-full aspect-square absolute left-0 top-0 z-20"></span>
+            <span class="transition-all backdrop-blur-md backdrop-saturate-100 backdrop-xs backdrop-brightness-150 w-full aspect-square absolute left-0 top-0 z-20"></span>
             <span class="bg-[url('/assets/img/profile-q90-w240.webp')] bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
         </div>
-        <div class="w-fit">
+        <div class="w-fit min-h-max">
             <span>
                 <a class="font-semibold text-brand-secondary-100 text-3xl font-serif"
                    href="https://jigsaw.test">Leonardo Poletto</a>
             </span>
             <div class="mt-5 description">
-                <p class="max-w-4xl">Hi there <span :class="{'inline-block motion-safe:animate-wave': wave}">👋</span>,
-    I’m a technologist focused on web standards, accessibility,
-    performance, privacy, and digital ethics. Building Foundations for a Better Web </p>                <nav class="mt-4 mb-0 flex items-center gap-5">
-    <ul class="flex gap-5">
+                <p class="max-w-4xl">Hi there, Software Engineer, focusing on web standards, accessibility, privacy, and performance. Creates tools for insights and empowers teams through education. </p>                <nav class="mt-4 mb-0 flex items-center gap-5">
+    <ul class="flex gap-3 md:gap-5">
         <li>
             <a href="https://github.com/leopoletto/"
                class="text-brand-secondary-100 hover:text-brand-accent-300">
@@ -116,21 +114,16 @@
 </svg>            </a>
         </li>
     </ul>
-    <ul class="flex gap-5 ml-3">
+    <ul class="flex gap-3 md:gap-5 ml-3">
                             <li>
-                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/blog/about" @mouseenter.stop="wave = true" @mouseleave.stop="wave = false" title="About Leonardo Poletto"
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg  hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/blog/about" @mouseenter.stop="wave = true" @mouseleave.stop="wave = false" title="About Leonardo Poletto"
     >
     About
 </a>                            </li>
                             <li>
-                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/pages/insights" @mouseenter.stop="light = true" @mouseleave.stop="light = false" title="Research & Insights"
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg  hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/tools-and-open-source" title="Learn more about tools" @mouseenter.stop="light = true" @mouseleave.stop="light = false"
     >
-    Research & Insights
-</a>                            </li>
-                            <li>
-                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/tools-and-open-source" title="Learn more about tools"
-    >
-    Tools & Open Source
+    Open Source
 </a>                            </li>
                         </ul>
 </nav>            </div>
@@ -138,7 +131,7 @@
     </div>
 </header>
 
-<main class="container mx-auto w-full max-w-7xl flex-auto overflow-hidden">
+<main class="container mx-auto w-full max-w-4xl px-5 flex-auto overflow-hidden">
         <section class="w-full grid grid-cols-12 gap-10 py-16">
         <section class="col-span-12">
             <header class="px-6 md:px-0 flex flex-col gap-4">
@@ -153,166 +146,148 @@
             </section>
 
             <section class="grid md:grid-cols-3 w-full md:gap-x-10 gap-y-4 md:gap-y-10 md:mt-10 px-4 md:px-0">
-                                    <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="https://jigsaw.test/blog/automatically-generate-rss-feeds-in-a-laravel-application" title="Read more: How to Automatically Generate RSS Feeds in Laravel">
-        <img src="https://jigsaw.test//assets/images/cover/how-to-generate-rss-feeds-in-a-laravel-application.webp"
-             alt="How to Automatically Generate RSS Feeds in Laravel">
-    </a>
+                                    <div class="flex flex-col bg-white">
     <div class="flex-grow gap-2 flex flex-col w-full">
-        <div class="flex gap-5 justify-between border-b border-b-gray-300 px-6 py-4">
-            <time datetime="2025-01-15" class="text-gray-700 font-mono">
+        <div class="flex gap-2">
+            <ul class="flex gap-4">
+                                                            <li>
+                            <a href="/categories/tutorials/"
+                               title="View posts in tutorials"
+                               class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
+                            >tutorials</a>
+                        </li>
+                                                </ul>
+            <span>-</span>
+            <time datetime="2025-01-15" class="text-gray-700 font-serif text-lg">
                 January 15, 2025
             </time>
+        </div>
+        <div class="flex gap-2 flex-col py-4">
+            <h2 class="font-serif flex mb-2 self-baseline text-2xl">
+                <a href="https://jigsaw.test/blog/automatically-generate-rss-feeds-in-a-laravel-application" title="Read more: How to Automatically Generate RSS Feeds in Laravel"
+                   class=" text-brand-secondary-100 text-2xl">How to Automatically Generate RSS Feeds in Laravel</a>
+            </h2>
+            <p class="text-gray-800 text-lg leading-relaxed mb-4">Learn how to easily add an RSS feed to your Laravel app using Spatie’s laravel-feed package. Step-by-step guide with examples and best practices!</p>
+        </div>
+    </div>
+</div>                                    <div class="flex flex-col bg-white">
+    <div class="flex-grow gap-2 flex flex-col w-full">
+        <div class="flex gap-2">
             <ul class="flex gap-4">
                                                             <li>
                             <a href="/categories/tutorials/"
                                title="View posts in tutorials"
-                               class="underline underline-offset-4 uppercase text-sm text-gray-700"
+                               class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
                             >tutorials</a>
                         </li>
                                                 </ul>
-        </div>
-        <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
-                <a href="https://jigsaw.test/blog/automatically-generate-rss-feeds-in-a-laravel-application" title="Read more: How to Automatically Generate RSS Feeds in Laravel"
-                   class=" text-brand-secondary-100 font-medium text-xl">How to Automatically Generate RSS Feeds in Laravel</a>
-            </h2>
-            <p class="text-gray-800 text-base leading-relaxed mb-4">Learn how to easily add an RSS feed to your Laravel app using Spatie’s laravel-feed package. Step-by-step guide with examples and best practices!</p>
-        </div>
-    </div>
-</div>                                    <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="https://jigsaw.test/blog/generate-laravel-migrations-from-an-existing-database" title="Read more: Laravel Migrations from an Existing Database">
-        <img src="https://jigsaw.test//assets/images/cover/generate-laravel-migrations.webp"
-             alt="Laravel Migrations from an Existing Database">
-    </a>
-    <div class="flex-grow gap-2 flex flex-col w-full">
-        <div class="flex gap-5 justify-between border-b border-b-gray-300 px-6 py-4">
-            <time datetime="2025-01-08" class="text-gray-700 font-mono">
+            <span>-</span>
+            <time datetime="2025-01-08" class="text-gray-700 font-serif text-lg">
                 January 8, 2025
             </time>
+        </div>
+        <div class="flex gap-2 flex-col py-4">
+            <h2 class="font-serif flex mb-2 self-baseline text-2xl">
+                <a href="https://jigsaw.test/blog/generate-laravel-migrations-from-an-existing-database" title="Read more: Laravel Migrations from an Existing Database"
+                   class=" text-brand-secondary-100 text-2xl">Laravel Migrations from an Existing Database</a>
+            </h2>
+            <p class="text-gray-800 text-lg leading-relaxed mb-4">Automate migration creation in Laravel from an existing database using the Laravel Migrations Generator package. Save time and streamline your workflow.</p>
+        </div>
+    </div>
+</div>                                    <div class="flex flex-col bg-white">
+    <div class="flex-grow gap-2 flex flex-col w-full">
+        <div class="flex gap-2">
             <ul class="flex gap-4">
                                                             <li>
                             <a href="/categories/tutorials/"
                                title="View posts in tutorials"
-                               class="underline underline-offset-4 uppercase text-sm text-gray-700"
+                               class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
                             >tutorials</a>
                         </li>
                                                 </ul>
-        </div>
-        <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
-                <a href="https://jigsaw.test/blog/generate-laravel-migrations-from-an-existing-database" title="Read more: Laravel Migrations from an Existing Database"
-                   class=" text-brand-secondary-100 font-medium text-xl">Laravel Migrations from an Existing Database</a>
-            </h2>
-            <p class="text-gray-800 text-base leading-relaxed mb-4">Automate migration creation in Laravel from an existing database using the Laravel Migrations Generator package. Save time and streamline your workflow.</p>
-        </div>
-    </div>
-</div>                                    <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="https://jigsaw.test/blog/schedule-periodic-database-clean-up-on-laravel" title="Read more: Schedule Database Clean-Up in Laravel for Performance">
-        <img src="https://jigsaw.test//assets/images/cover/schedule-periodic-database-clean-up-on-laravel.webp"
-             alt="Schedule Database Clean-Up in Laravel for Performance">
-    </a>
-    <div class="flex-grow gap-2 flex flex-col w-full">
-        <div class="flex gap-5 justify-between border-b border-b-gray-300 px-6 py-4">
-            <time datetime="2025-01-01" class="text-gray-700 font-mono">
+            <span>-</span>
+            <time datetime="2025-01-01" class="text-gray-700 font-serif text-lg">
                 January 1, 2025
             </time>
+        </div>
+        <div class="flex gap-2 flex-col py-4">
+            <h2 class="font-serif flex mb-2 self-baseline text-2xl">
+                <a href="https://jigsaw.test/blog/schedule-periodic-database-clean-up-on-laravel" title="Read more: Schedule Database Clean-Up in Laravel for Performance"
+                   class=" text-brand-secondary-100 text-2xl">Schedule Database Clean-Up in Laravel for Performance</a>
+            </h2>
+            <p class="text-gray-800 text-lg leading-relaxed mb-4">Discover how to schedule periodic database clean-up in Laravel to prune unnecessary data and improve query performance.</p>
+        </div>
+    </div>
+</div>                                    <div class="flex flex-col bg-white">
+    <div class="flex-grow gap-2 flex flex-col w-full">
+        <div class="flex gap-2">
             <ul class="flex gap-4">
                                                             <li>
                             <a href="/categories/tutorials/"
                                title="View posts in tutorials"
-                               class="underline underline-offset-4 uppercase text-sm text-gray-700"
+                               class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
                             >tutorials</a>
                         </li>
                                                 </ul>
-        </div>
-        <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
-                <a href="https://jigsaw.test/blog/schedule-periodic-database-clean-up-on-laravel" title="Read more: Schedule Database Clean-Up in Laravel for Performance"
-                   class=" text-brand-secondary-100 font-medium text-xl">Schedule Database Clean-Up in Laravel for Performance</a>
-            </h2>
-            <p class="text-gray-800 text-base leading-relaxed mb-4">Discover how to schedule periodic database clean-up in Laravel to prune unnecessary data and improve query performance.</p>
-        </div>
-    </div>
-</div>                                    <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="https://jigsaw.test/blog/password-confirmation-for-sensitive-actions-on-laravel" title="Read more: Password Confirmation for Sensitive Actions in Laravel">
-        <img src="https://jigsaw.test//assets/images/cover/password-confirmation-for-sensitive-actions-on-laravel.webp"
-             alt="Password Confirmation for Sensitive Actions in Laravel">
-    </a>
-    <div class="flex-grow gap-2 flex flex-col w-full">
-        <div class="flex gap-5 justify-between border-b border-b-gray-300 px-6 py-4">
-            <time datetime="2024-12-18" class="text-gray-700 font-mono">
+            <span>-</span>
+            <time datetime="2024-12-18" class="text-gray-700 font-serif text-lg">
                 December 18, 2024
             </time>
+        </div>
+        <div class="flex gap-2 flex-col py-4">
+            <h2 class="font-serif flex mb-2 self-baseline text-2xl">
+                <a href="https://jigsaw.test/blog/password-confirmation-for-sensitive-actions-on-laravel" title="Read more: Password Confirmation for Sensitive Actions in Laravel"
+                   class=" text-brand-secondary-100 text-2xl">Password Confirmation for Sensitive Actions in Laravel</a>
+            </h2>
+            <p class="text-gray-800 text-lg leading-relaxed mb-4">Learn how to protect sensitive actions in Laravel by requiring password confirmation. Enhance security for critical user actions.</p>
+        </div>
+    </div>
+</div>                                    <div class="flex flex-col bg-white">
+    <div class="flex-grow gap-2 flex flex-col w-full">
+        <div class="flex gap-2">
             <ul class="flex gap-4">
                                                             <li>
                             <a href="/categories/tutorials/"
                                title="View posts in tutorials"
-                               class="underline underline-offset-4 uppercase text-sm text-gray-700"
+                               class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
                             >tutorials</a>
                         </li>
                                                 </ul>
-        </div>
-        <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
-                <a href="https://jigsaw.test/blog/password-confirmation-for-sensitive-actions-on-laravel" title="Read more: Password Confirmation for Sensitive Actions in Laravel"
-                   class=" text-brand-secondary-100 font-medium text-xl">Password Confirmation for Sensitive Actions in Laravel</a>
-            </h2>
-            <p class="text-gray-800 text-base leading-relaxed mb-4">Learn how to protect sensitive actions in Laravel by requiring password confirmation. Enhance security for critical user actions.</p>
-        </div>
-    </div>
-</div>                                    <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="https://jigsaw.test/blog/migrate-password-from-a-legacy-php-application-to-laravel" title="Read more: Migrate Passwords from a Legacy PHP App to Laravel">
-        <img src="https://jigsaw.test//assets/images/cover/migrate-legacy-passwords-to-laravel.webp"
-             alt="Migrate Passwords from a Legacy PHP App to Laravel">
-    </a>
-    <div class="flex-grow gap-2 flex flex-col w-full">
-        <div class="flex gap-5 justify-between border-b border-b-gray-300 px-6 py-4">
-            <time datetime="2024-12-11" class="text-gray-700 font-mono">
+            <span>-</span>
+            <time datetime="2024-12-11" class="text-gray-700 font-serif text-lg">
                 December 11, 2024
             </time>
-            <ul class="flex gap-4">
-                                                            <li>
-                            <a href="/categories/tutorials/"
-                               title="View posts in tutorials"
-                               class="underline underline-offset-4 uppercase text-sm text-gray-700"
-                            >tutorials</a>
-                        </li>
-                                                </ul>
         </div>
-        <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
+        <div class="flex gap-2 flex-col py-4">
+            <h2 class="font-serif flex mb-2 self-baseline text-2xl">
                 <a href="https://jigsaw.test/blog/migrate-password-from-a-legacy-php-application-to-laravel" title="Read more: Migrate Passwords from a Legacy PHP App to Laravel"
-                   class=" text-brand-secondary-100 font-medium text-xl">Migrate Passwords from a Legacy PHP App to Laravel</a>
+                   class=" text-brand-secondary-100 text-2xl">Migrate Passwords from a Legacy PHP App to Laravel</a>
             </h2>
-            <p class="text-gray-800 text-base leading-relaxed mb-4">Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms.</p>
+            <p class="text-gray-800 text-lg leading-relaxed mb-4">Migrate legacy passwords to Laravel with a custom hashing driver. Ensure compatibility with MD5, SHA-1, and other outdated algorithms.</p>
         </div>
     </div>
-</div>                                    <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="https://jigsaw.test/blog/invalidating-sessions-on-other-devices-on-laravel" title="Read more: Invalidating Sessions on Other Devices in Laravel">
-        <img src="https://jigsaw.test//assets/images/cover/invalidating-sessions-on-other-devices.webp"
-             alt="Invalidating Sessions on Other Devices in Laravel">
-    </a>
+</div>                                    <div class="flex flex-col bg-white">
     <div class="flex-grow gap-2 flex flex-col w-full">
-        <div class="flex gap-5 justify-between border-b border-b-gray-300 px-6 py-4">
-            <time datetime="2024-12-04" class="text-gray-700 font-mono">
-                December 4, 2024
-            </time>
+        <div class="flex gap-2">
             <ul class="flex gap-4">
                                                             <li>
                             <a href="/categories/tutorials/"
                                title="View posts in tutorials"
-                               class="underline underline-offset-4 uppercase text-sm text-gray-700"
+                               class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
                             >tutorials</a>
                         </li>
                                                 </ul>
+            <span>-</span>
+            <time datetime="2024-12-04" class="text-gray-700 font-serif text-lg">
+                December 4, 2024
+            </time>
         </div>
-        <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
+        <div class="flex gap-2 flex-col py-4">
+            <h2 class="font-serif flex mb-2 self-baseline text-2xl">
                 <a href="https://jigsaw.test/blog/invalidating-sessions-on-other-devices-on-laravel" title="Read more: Invalidating Sessions on Other Devices in Laravel"
-                   class=" text-brand-secondary-100 font-medium text-xl">Invalidating Sessions on Other Devices in Laravel</a>
+                   class=" text-brand-secondary-100 text-2xl">Invalidating Sessions on Other Devices in Laravel</a>
             </h2>
-            <p class="text-gray-800 text-base leading-relaxed mb-4">Secure Laravel apps by invalidating user sessions on other devices. Learn how to log out users remotely using Auth::logoutOtherDevices.</p>
+            <p class="text-gray-800 text-lg leading-relaxed mb-4">Secure Laravel apps by invalidating user sessions on other devices. Learn how to log out users remotely using Auth::logoutOtherDevices.</p>
         </div>
     </div>
 </div>                            </section>
@@ -320,12 +295,12 @@
     </section>
 </main>
 
-<footer class="px-6 py-6 text-center bg-brand-secondary-100 md:px-0">
+<footer class="px-6 py-6 text-center border-t border-t-brand-secondary-400 md:px-0">
     <ul class="flex gap-5 justify-center items-center">
-        <li class="text-base text-white after:content-['✦'] after:text-base after:ml-5">
+        <li class="text-base text-brand-secondary-100 after:content-['✦'] after:text-base after:ml-5">
             No tracking. No cookies. Just content.
         </li>
-        <li class="text-base text-white">
+        <li class="text-base text-brand-secondary-100">
             Built with purpose. Maintained with integrity.
         </li>
     </ul>

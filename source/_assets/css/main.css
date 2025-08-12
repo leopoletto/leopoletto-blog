@@ -1,4 +1,4 @@
-@import 'highlight.js/styles/github.min.css';
+@import 'highlight.js/styles/night-owl.min.css';
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
@@ -124,7 +124,7 @@
         }
 
         pre:has(code.hljs) {
-            @apply rounded border border-brand-secondary-400 mb-10;
+            @apply rounded border border-[#011627] bg-[#011627] mb-10;
         }
 
         code.hljs {
@@ -143,7 +143,7 @@
         h4,
         h5,
         h6 {
-            @apply mt-8 mb-2 font-medium font-serif text-brand-primary-100;
+            @apply mt-8 mb-2 font-bold font-serif text-brand-primary-100;
 
             &:first-child {
                 @apply mt-0;
@@ -193,14 +193,14 @@
         }
 
         p {
-            @apply mb-2 text-gray-800  text-lg leading-relaxed pt-5 mt-2;
+            @apply mb-2 text-gray-800  text-lg leading-[1.875rem] pt-5 mt-2;
 
             & > code {
                 @apply text-base text-brand-primary-100 break-words bg-brand-secondary-500 py-0.5 px-1 rounded;
             }
 
             & > strong {
-                @apply font-medium;
+                @apply font-bold;
             }
 
             &:has(em code) {
@@ -227,7 +227,7 @@
 
 
         pre {
-            @apply p-3 bg-white mb-6 mt-4 text-base border-1 border-brand-secondary-400 leading-loose  overflow-x-auto shadow-sm w-full relative;
+            @apply p-3 bg-white mb-6 mt-4 text-base border-1 border-brand-secondary-400 leading-relaxed  overflow-x-auto shadow-sm w-full relative;
 
             & code {
                 @apply block p-0 bg-transparent rounded-none text-base;
@@ -244,7 +244,7 @@
     }
 
     .description p {
-        @apply text-xl leading-loose text-brand-secondary-200;
+        @apply text-base text-gray-600 md:text-lg;
 
 
         & > a {

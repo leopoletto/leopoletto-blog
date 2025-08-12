@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
 @section('body')
-    <article class="container mx-auto w-full max-w-7xl my-16" id="read">
+    <article class="container mx-auto w-full max-w-7xl my-5 md:my-16" id="read">
         <div class="max-w-5xl mx-auto">
             <section class="w-full">
                 <x-post.header :page="$page"/>

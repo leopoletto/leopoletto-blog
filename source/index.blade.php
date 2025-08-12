@@ -6,17 +6,17 @@ pagination:
 @extends('_layouts.main')
 
 @section('body')
-    <section class="w-full grid grid-cols-12 max-w-4xl mx-auto  gap-10 my-16">
+    <section class="w-full grid grid-cols-12 max-w-3xl  gap-10 my-5">
         <section class="col-span-12">
             <header class="w-full flex flex-col gap-3">
-                <h1 class="font-serif tracking-tight block px-5 md:px-0 mb-0 md:text-4xl leading-10 text-brand-secondary-100 font-semibold text-3xl">Latest updates</h1>
+                <h1 class="font-serif tracking-tight block md:px-0 mb-0 md:text-4xl leading-10 text-brand-secondary-300 font-semibold text-3xl">Latest updates</h1>
                 <p class="text-lg w-full text-gray-800 data-label:before:content-[attr(data-label)] before:font-serif before:text-brand-secondary-200 before:uppercase before:text-base before:font-bold gap-2 leading-relaxed" data-label="Quick Summary:">
                     Step-by-step guides to tutorials; articles in-depth pieces exploring concepts, ideas, and analyses;
                     personal reflections and updates journal; quick tips with short, insightful snippets and code samples.
                 </p>
             </header>
 
-            <section class="w-full gap-y-10 px-4 md:px-0 mt-10">
+            <section class="w-full flex flex-col gap-y-10 px-4 md:px-0 mt-16">
                 @isset($pagination)
                     @foreach ($pagination->items as $post)
                         @includeWhen($post->isFeatured(), '_components.post-preview-inline')

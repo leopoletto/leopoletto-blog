@@ -64,9 +64,9 @@
     <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
 </head>
 <body class="min-h-screen bg-white font-sans">
-<header x-data="{ light: false, wave: false }" class="py-10 flex items-center ">
-    <div class="container items-center mx-auto flex max-w-7xl flex-col gap-2 md:flex-row md:gap-10">
-        <div class="border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
+<header x-data="{ light: true, wave: false }" class="py-10 px-5 flex items-center">
+    <div class="container items-center justify-around mx-auto flex max-w-4xl flex-col gap-2 md:flex-row md:gap-10">
+        <div class="hidden md:block border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
             <a href="{{ str($page->baseUrl)->beforeLast('/') }}"
                :class="{'motion-safe:animate-insight': light}"
                class="relative z-30 rounded-2xl self-baseline md:block md:w-fit md:overflow-clip">
@@ -74,24 +74,24 @@
                      class="-scale-x-100 w-[200px] rounded-2xl md:w-[200px] md:min-w-[200px]"
                      src="{{ $page->baseUrl . 'assets/img/profile-q90-w240.webp' }}"/>
             </a>
-            <span class="transition-all backdrop-blur-md backdrop-saturate-150 backdrop-xs backdrop-brightness-200 w-full aspect-square absolute left-0 top-0 z-20"></span>
+            <span class="transition-all backdrop-blur-md backdrop-saturate-100 backdrop-xs backdrop-brightness-150 w-full aspect-square absolute left-0 top-0 z-20"></span>
             <span class="bg-[url('/assets/img/profile-q90-w240.webp')] bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
         </div>
-        <div class="w-fit">
+        <div class="w-fit min-h-max">
             <span>
                 <a class="font-semibold text-brand-secondary-100 text-3xl font-serif"
                    href="{{ str($page->baseUrl)->beforeLast('/') }}">{{ $page->siteName  }}</a>
             </span>
             <div class="mt-5 description">
-                <x-partials.short-about />
+                <x-partials.short-about/>
                 <x-partials.main-nav
-                    github="https://github.com/leopoletto/"
-                    linkedin="https://www.linkedin.com/in/leopoletto/"
-                    x="https://x.com/leopoletto"
-                    atom="{{ str($page->baseUrl)->append('blog/feed.atom') }}"
+                        github="https://github.com/leopoletto/"
+                        linkedin="https://www.linkedin.com/in/leopoletto/"
+                        x="https://x.com/leopoletto"
+                        atom="{{ str($page->baseUrl)->append('blog/feed.atom') }}"
                 >
                     <x-slot:links>
-                        <ul class="flex gap-5 ml-3">
+                        <ul class="flex gap-3 md:gap-5 ml-3">
                             <li>
                                 <x-partials.menu-link
                                         href="{{ $page->baseUrl . 'blog/about'  }}"
@@ -102,18 +102,10 @@
                                 </x-partials.menu-link>
                             </li>
                             <li>
-                                <x-partials.menu-link
-                                        href="{{ $page->baseUrl . 'pages/insights'  }}"
-                                        @mouseenter.stop="light = true"
-                                        @mouseleave.stop="light = false"
-                                        title="Research & Insights"
-                                        {{--                                              class="relative flex items-center pr-5 after:absolute after:-right-2 after:top-3 after:content-['✧'] after:ml-4 after:text-base after:no-underline"--}}
-                                >Research & Insights
-                                </x-partials.menu-link>
-                            </li>
-                            <li>
                                 <x-partials.menu-link href="{{ $page->baseUrl . 'tools-and-open-source'  }}"
-                                                      title="Learn more about tools">Tools & Open Source
+                                          title="Learn more about tools"
+                                          @mouseenter.stop="light = true"
+                                          @mouseleave.stop="light = false">Open Source
                                 </x-partials.menu-link>
                             </li>
                         </ul>
@@ -124,16 +116,16 @@
     </div>
 </header>
 
-<main class="container mx-auto w-full max-w-7xl flex-auto overflow-hidden">
+<main class="container mx-auto w-full max-w-4xl px-5 flex-auto overflow-hidden">
     @yield('body')
 </main>
 
-<footer class="px-6 py-6 text-center bg-brand-secondary-100 md:px-0">
+<footer class="px-6 py-6 text-center border-t border-t-brand-secondary-400 md:px-0">
     <ul class="flex gap-5 justify-center items-center">
-        <li class="text-base text-white after:content-['✦'] after:text-base after:ml-5">
+        <li class="text-base text-brand-secondary-100 after:content-['✦'] after:text-base after:ml-5">
             No tracking. No cookies. Just content.
         </li>
-        <li class="text-base text-white">
+        <li class="text-base text-brand-secondary-100">
             Built with purpose. Maintained with integrity.
         </li>
     </ul>
