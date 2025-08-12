@@ -8,9 +8,9 @@
 @layer base, theme, utilities;
 
 @theme {
-    --font-sans: "Syne", sans-serif;
-    --font-serif: "Syne", sans-serif;
-    --font-mono: "JetBrains Mono", mono;
+    --font-sans: "Mozilla Text", "Mozilla Text-iOS-Fallback", "Mozilla Text-Android-Fallback", "Mozilla Text-Windows-Fallback", "Mozilla Text-macOS-Fallback", "Mozilla Text-Linux-Fallback";
+    --font-serif: "Mozilla Headline", "Mozilla Headline-iOS-Fallback", "Mozilla Headline-Android-Fallback", "Mozilla Headline-Windows-Fallback", "Mozilla Headline-macOS-Fallback", "Mozilla Headline-Linux-Fallback";
+    --font-mono: "JetBrains Mono", "JetBrains Mono-iOS-Fallback", "JetBrains Mono-Android-Fallback", "JetBrains Mono-Windows-Fallback", "JetBrains Mono-macOS-Fallback", "JetBrains Mono-Linux-Fallback";
 
     --color-brand-primary-100: #0a1a2b;
     --color-brand-primary-200: #173d64;
@@ -244,7 +244,7 @@
     }
 
     .description p {
-        @apply text-lg leading-loose text-brand-secondary-200;
+        @apply text-xl leading-loose text-brand-secondary-200;
 
 
         & > a {

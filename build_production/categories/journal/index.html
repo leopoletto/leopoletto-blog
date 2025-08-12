@@ -42,9 +42,10 @@
     <link rel="home" href="https://jigsaw.test">
 
     <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/jetbrains-mono.css">
-    <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/syne.css">
-    <link rel="stylesheet" href="/assets/build/assets/main-K5ofviup.css">
+    <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/mozilla-headline.css">
+    <link rel="stylesheet" href="https://jigsaw.test/assets/fonts/mozilla-text.css">
 
+        <link rel="stylesheet" href="/assets/build/assets/main-Dbu6bPEM.css">
     <style>
         .prose a[href^="http"]:not([href*="https://jigsaw.test/"])::after {
             opacity: 0.7;
@@ -57,8 +58,8 @@
 
     <script defer type="module" src="/assets/build/assets/main-Dg3DB18v.js"></script>
 </head>
-<body class="min-h-screen bg-gray-50">
-<header x-data="{ light: false, wave: false }" class="py-10 flex items-center bg-brand-secondary-600/20 border-b border-b-brand-secondary-400">
+<body class="min-h-screen bg-white font-sans">
+<header x-data="{ light: false, wave: false }" class="py-10 flex items-center ">
     <div class="container items-center mx-auto flex max-w-7xl flex-col gap-2 md:flex-row md:gap-10">
         <div class="border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
             <a href="https://jigsaw.test"
@@ -99,7 +100,7 @@
         </li>
         <li>
             <a href="https://x.com/leopoletto">
-                <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" height="20" class="h-5 stroke-brand-secondary-100 hover:stroke-brand-accent-300 fill-brand-secondary-100 hover:fill-brand-accent-300" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" height="20" class="h-5 stroke-brand-secondary-100 hover:stroke-brand-accent-300 fill-none" viewBox="0 0 24 24"
      stroke-linecap="round"
      stroke-linejoin="round"
      stroke-width="2">
@@ -108,7 +109,7 @@
 </svg>            </a>
         </li>
         <li>
-            <a href="https://jigsaw.test/blog/feed.atom" class="text-brand-secondary-600 hover:text-brand-accent-700">
+            <a href="https://jigsaw.test/blog/feed.atom" >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"fill="currentColor" height="20" class="h-5 text-brand-secondary-100 hover:text-brand-accent-300" >
     <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
     <path stroke="currentColor" d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
@@ -117,17 +118,17 @@
     </ul>
     <ul class="flex gap-5 ml-3">
                             <li>
-                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-accent-200 underline-offset-8" href="https://jigsaw.test/blog/about" @mouseenter.stop="wave = true" @mouseleave.stop="wave = false" title="About Leonardo Poletto"
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/blog/about" @mouseenter.stop="wave = true" @mouseleave.stop="wave = false" title="About Leonardo Poletto"
     >
     About
 </a>                            </li>
                             <li>
-                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-accent-200 underline-offset-8" href="https://jigsaw.test/pages/insights" @mouseenter.stop="light = true" @mouseleave.stop="light = false" title="Research & Insights"
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/pages/insights" @mouseenter.stop="light = true" @mouseleave.stop="light = false" title="Research & Insights"
     >
     Research & Insights
 </a>                            </li>
                             <li>
-                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-accent-200 underline-offset-8" href="https://jigsaw.test/tools-and-open-source" title="Learn more about tools"
+                                <a class="text-brand-secondary-100 flex py-2 hover:underline text-lg hover:text-brand-secondary-300 underline-offset-8" href="https://jigsaw.test/tools-and-open-source" title="Learn more about tools"
     >
     Tools & Open Source
 </a>                            </li>
@@ -139,7 +140,7 @@
 
 <main class="container mx-auto w-full max-w-7xl flex-auto overflow-hidden">
         <section class="w-full grid grid-cols-12 gap-10 py-16">
-        <section class="col-span-8">
+        <section class="col-span-12">
             <header class="px-6 md:px-0 flex flex-col gap-4">
                 <h1 class="font-serif tracking-tight font-semibold text-brand-secondary-100 text-3xl md:text-4xl leading-snug">Journal</h1>
                 <p class="text-lg text-gray-800 data-label:before:content-[attr(data-label)] before:font-serif before:text-brand-secondary-200 before:uppercase before:text-base  gap-2 leading-relaxed" data-label="Quick Summary:">
@@ -151,7 +152,7 @@
                 <p>Personal reflections and updates on your product development journey</p>
             </section>
 
-            <section class="grid md:grid-cols-2 w-full md:gap-x-10 gap-y-4 md:gap-y-10 md:mt-10 px-4 md:px-0">
+            <section class="grid md:grid-cols-3 w-full md:gap-x-10 gap-y-4 md:gap-y-10 md:mt-10 px-4 md:px-0">
                                     <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
     <a href="https://jigsaw.test/blog/about" title="Read more: About Me: Building Better Web Foundations">
         <img src="https://jigsaw.test//assets/images/cover/about.webp"
@@ -172,19 +173,14 @@
                                                 </ul>
         </div>
         <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-2xl">
+            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
                 <a href="https://jigsaw.test/blog/about" title="Read more: About Me: Building Better Web Foundations"
                    class=" text-brand-secondary-100 font-medium text-xl">About Me: Building Better Web Foundations</a>
             </h2>
-            <p class="text-gray-800 text-lg leading-relaxed mb-4">Learn about my journey as a technologist focused on web standards, accessibility, privacy, and digital ethics.</p>
+            <p class="text-gray-800 text-base leading-relaxed mb-4">Learn about my journey as a technologist focused on web standards, accessibility, privacy, and digital ethics.</p>
         </div>
     </div>
 </div>                            </section>
-        </section>
-        <section class="col-span-4 border-1 border-brand-secondary-400 rounded bg-brand-secondary-500">
-            <aside>
-
-            </aside>
         </section>
     </section>
 </main>

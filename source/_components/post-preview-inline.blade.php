@@ -1,5 +1,5 @@
 <div class="flex flex-col bg-white md:border border-b border-gray-300 drop-shadow-sm  rounded-lg overflow-clip">
-    <a href="{{ $post->getUrl() }}" title="Read more: {{ $post->title }}">
+    <a href="{{ $post->getUrl() }}" title="Read more: {{ $post->title }}" class="hidden">
         <img src="{{ $page->baseUrl . '/assets/images/' . ($post?->cover ? 'cover/' . $post->cover : 'og/' . $post->image) }}"
              alt="{{ $post->title }}">
     </a>
@@ -22,11 +22,11 @@
             </ul>
         </div>
         <div class="flex gap-2 flex-col px-6 py-4">
-            <h2 class="font-serif  flex mb-2 self-baseline text-2xl">
+            <h2 class="font-serif  flex mb-2 self-baseline text-3xl">
                 <a href="{{ $post->getUrl() }}" title="Read more: {{ $post->title }}"
                    class=" text-brand-secondary-100 font-medium text-xl">{{ $post->title }}</a>
             </h2>
-            <p class="text-gray-800 text-lg leading-relaxed mb-4">{{ $post->description }}</p>
+            <p class="text-gray-800 text-base leading-relaxed mb-4">{{ $post->description }}</p>
         </div>
     </div>
 </div>

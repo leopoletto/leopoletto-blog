@@ -46,9 +46,11 @@
     <link rel="home" href="{{ str($page->baseUrl)->beforeLast('/') }}">
 
     <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/jetbrains-mono.css' }}">
-    <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/syne.css' }}">
-    <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/mozilla-headline.css' }}">
+    <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/mozilla-text.css' }}">
 
+    @viteRefresh()
+    <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
     <style>
         .prose a[href^="http"]:not([href*="{{ $page->baseUrl  }}"])::after {
             opacity: 0.7;
@@ -61,8 +63,8 @@
 
     <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
 </head>
-<body class="min-h-screen bg-gray-50">
-<header x-data="{ light: false, wave: false }" class="py-10 flex items-center bg-brand-secondary-600/20 border-b border-b-brand-secondary-400">
+<body class="min-h-screen bg-white font-sans">
+<header x-data="{ light: false, wave: false }" class="py-10 flex items-center ">
     <div class="container items-center mx-auto flex max-w-7xl flex-col gap-2 md:flex-row md:gap-10">
         <div class="border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
             <a href="{{ str($page->baseUrl)->beforeLast('/') }}"

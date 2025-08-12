@@ -22,11 +22,11 @@
         <li>
             <a href="{{ $x }}">
                 <x-icons.x
-                        class="h-5 stroke-brand-secondary-100 hover:stroke-brand-accent-300 fill-brand-secondary-100 hover:fill-brand-accent-300"/>
+                        class="h-5 stroke-brand-secondary-100 hover:stroke-brand-accent-300 fill-none"/>
             </a>
         </li>
         <li>
-            <a href="{{ $atom }}" class="text-brand-secondary-600 hover:text-brand-accent-700">
+            <a href="{{ $atom }}" >
                 <x-icons.rss class="h-5 text-brand-secondary-100 hover:text-brand-accent-300"/>
             </a>
         </li>
