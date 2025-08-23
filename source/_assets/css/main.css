@@ -8,9 +8,9 @@
 @layer base, theme, utilities;
 
 @theme {
-    --font-sans: "Mozilla Text", "Mozilla Text-iOS-Fallback", "Mozilla Text-Android-Fallback", "Mozilla Text-Windows-Fallback", "Mozilla Text-macOS-Fallback", "Mozilla Text-Linux-Fallback";
-    --font-serif: "Mozilla Headline", "Mozilla Headline-iOS-Fallback", "Mozilla Headline-Android-Fallback", "Mozilla Headline-Windows-Fallback", "Mozilla Headline-macOS-Fallback", "Mozilla Headline-Linux-Fallback";
-    --font-mono: "JetBrains Mono", "JetBrains Mono-iOS-Fallback", "JetBrains Mono-Android-Fallback", "JetBrains Mono-Windows-Fallback", "JetBrains Mono-macOS-Fallback", "JetBrains Mono-Linux-Fallback";
+    --font-sans: 'Merriweather', 'Merriweather-iOS-Fallback', 'Merriweather-android-Fallback', 'Merriweather-windows-Fallback', 'Merriweather-macOS-Fallback', 'Merriweather-linux-Fallback', serif;
+    --font-serif: 'Merriweather', 'Merriweather-iOS-Fallback', 'Merriweather-android-Fallback', 'Merriweather-windows-Fallback', 'Merriweather-macOS-Fallback', 'Merriweather-linux-Fallback', serif;
+    --font-mono: 'JetBrains Mono', 'JetBrains Mono-iOS-Fallback', 'JetBrains Mono-android-Fallback', 'JetBrains Mono-windows-Fallback', 'JetBrains Mono-macOS-Fallback', 'JetBrains Mono-linux-Fallback', monospace;
 
     --color-brand-primary-100: #0a1a2b;
     --color-brand-primary-200: #173d64;
@@ -172,10 +172,10 @@
 
         ol,
         ul {
-            @apply my-5 ml-5;
+            @apply my-10 ml-5;
 
             & > li {
-                @apply leading-relaxed text-lg my-1 text-gray-800 ;
+                @apply leading-loose text-[17px] my-1 text-gray-800 ;
             }
         }
 
@@ -193,7 +193,7 @@
         }
 
         p {
-            @apply mb-2 text-gray-800  text-lg leading-[1.875rem] pt-5 mt-2;
+            @apply mb-2 text-gray-800  text-[17px]  leading-loose pt-5 mt-2;
 
             & > code {
                 @apply text-base text-brand-primary-100 break-words bg-brand-secondary-500 py-0.5 px-1 rounded;
@@ -244,8 +244,7 @@
     }
 
     .description p {
-        @apply text-base text-gray-600 md:text-lg;
-
+        @apply text-gray-600 text-[17px] leading-loose;
 
         & > a {
             @apply text-brand-secondary-100 underline underline-offset-4 hover:text-brand-accent-300

@@ -3,1133 +3,148 @@
     <title>Leonardo Poletto</title>
     <link href="https://jigsaw.test/blog" />
     <link type="application/atom+xml" rel="self" href="https://jigsaw.test/blog/feed.atom" />
-    <updated>2025-08-12T01:29:30+00:00</updated>
+    <updated>2025-08-23T12:53:54+00:00</updated>
     <id>https://jigsaw.test/blog/feed.atom</id>
     <author>
         <name>Leonardo Poletto</name>
     </author>
                 <entry>
-    <id>https://jigsaw.test/blog/automatically-generate-rss-feeds-in-a-laravel-application/</id>
-    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/automatically-generate-rss-feeds-in-a-laravel-application/" />
-    <title>How to Automatically Generate RSS Feeds in Laravel</title>
-    <published>2025-01-15T00:00:00+00:00</published>
-    <updated>2025-01-15T00:00:00+00:00</updated>
+    <id>https://jigsaw.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship/</id>
+    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship/" />
+    <title>Open Lab: A Shift from Checklist to Craftsmanship</title>
+    <published>2025-08-18T00:00:00+00:00</published>
+    <updated>2025-08-18T00:00:00+00:00</updated>
     <author>
         <name>Leonardo Poletto</name>
     </author>
-    <summary type="html">One handy way of keeping users up-to-date on your content is creating an RSS feed.
-It allows them to sign up using an RSS reader.
-The effort to implement this feature is worth considering because 
-the website will have another content distribution channel.
+    <summary type="html">There’s one side of me that says writing here again is freedom, and another side that says it’s dumbness. Maybe both are true.
 
-Spatie, a well-known company by creating hundreds of good packages for Laravel.
-One of them is laravel-feed.
-Let&#039;s see how it works:
-
-
-
-The......</summary>
+It has been seven months since I wrote my last line of code for Student Crowd, the company where I worked for over a year. As soon as I received the notice that my contract wouldn’t be renewed, I did what I was used to doing — what many developers do: clean the......</summary>
     <content type="html"><![CDATA[
-        <p>One handy way of keeping users up-to-date on your content is creating an RSS feed.
-It allows them to sign up using an RSS reader.
-The effort to implement this feature is worth considering because 
-the website will have another content distribution channel.</p>
+        <p>There’s one side of me that says writing here again is freedom, and another side that says it’s dumbness. Maybe both are true.</p>
 
-<p>Spatie, a well-known company by creating hundreds of good packages for Laravel.
-One of them is <a href="https://github.com/spatie/laravel-feed">laravel-feed</a>.
-Let's see how it works:</p>
+<p>It has been seven months since I wrote my last line of code for Student Crowd, the company where I worked for over a year. As soon as I received the notice that my contract wouldn’t be renewed, I did what I was used to doing — what many developers do: clean the dust off an old blog and start writing again. This time it felt different. I wasn’t just between jobs. I was let go, and though I had been in that position before, this time I was struggling to maintain my mental resilience.</p>
 
-<h2>Installation</h2>
+<p>What I didn’t tell anyone is that I’m an addict. I’ve been sober since then — seven months, the longest stretch since I recognized my abuse patterns at 23. Post-pandemic, it hit me harder than ever.</p>
 
-<p>The first step is to install the package in your Laravel Application:</p>
+<p>Every company I’ve worked for gave me second, third, and sometimes more chances. They didn’t want to let me go, but I became the shading guy — disappearing slowly. Still delivering tasks, but skipping meetings, fading out of presence. That’s why I never asked for referrals. Not because people disliked me, but because the version of me they saw wasn’t the whole one.</p>
 
-<pre><code class="language-bash">composer require spatie/laravel-feed
-</code></pre>
+<p>Even though I could deliver, that way of working is selfish and can’t last long.</p>
 
-<p>Then you must publish the config file:</p>
+<p>So, in these months sober, I turned inward and built things. Not for a company, not for deadlines, but for myself — as a way to learn, to stay focused, and to see what I was capable of when I actually showed up.</p>
 
-<pre><code class="language-bash">php artisan vendor:publish --provider="Spatie\Feed\FeedServiceProvider" --tag="feed-config"
-</code></pre>
+<p>What I’ve built over the past few months is what I’ll be sharing here. I’m not promising a publishing schedule. I’ll write when I can, but I will publish. For me, this is a way of keeping myself honest. For anyone reading, it’s an invitation to see what I’ve been working on.</p>
 
-<h2>Usage</h2>
+<hr />
 
-<p>Let's break down the possibilities when configuring a feed.</p>
+<h2>From Checklists to Craft</h2>
 
-<h3>Creating feeds</h3>
+<p>When I first started optimizing my site, I chased Lighthouse scores like everyone else. Pass the audits, hit 100, move on. But I realized I was treating standards like a checklist, not as part of the craft.</p>
 
-<p>The config file has a <code>feeds</code> key containing an array in which each item represents a new feed, and the key is the feed name.</p>
+<p>That’s when I started <strong>Wizard Compass</strong> — not just another Lighthouse wrapper, but a tool to explain <em>why</em> each audit matters.</p>
 
-<p>Let's create a feed for our Blog Posts:</p>
+<p>I have mapped the curriculum to match Lighthouse category groups:</p>
 
-<p><em><code>app/config/feed.php</code></em></p>
-
-<pre><code class="language-php">return [
-    'feeds' =&gt; [
-        'blog-posts' =&gt; [
-            //...
-        ],
-        'another-feed' =&gt; [
-            //...
-        ]   
-    ]
-];
-</code></pre>
-
-<p>The key <code>blog-posts</code> is also the name of the feed in which its value contains the configuration as an Array. 
-You can create more feeds if needed, but for the sake of this article, let's focus on <code>blog-posts</code>.</p>
-
-<p>That being said, for our model to work,
-we need
-to implement the interface <code>Spatie\Feed\Feedable</code>.
-It has a signature for a public method named <code>toFeedItem</code>
-which must return an instance of <code>Spatie\Feed\FeedItem</code>.</p>
-
-<p>Below is an example of how to create a <code>FeedItem</code> object:</p>
-
-<p><em><code>app/Models/BlogPost.php</code></em></p>
-
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
-
-class BlogPost extends Model implements Feedable
-{
-    //...
-    public function toFeedItem(): FeedItem
-    {
-        return FeedItem::create()
-            -&gt;id($this-&gt;id)
-            -&gt;title($this-&gt;title)
-            -&gt;summary($this-&gt;summary)
-            -&gt;updated($this-&gt;updated_at)
-            -&gt;link(route('blog-posts.show', $this-&gt;slug))
-            -&gt;authorName($this-&gt;author-&gt;name)
-            -&gt;authorEmail($this-&gt;author-&gt;email);
-    }
-}
-</code></pre>
-
-<p>Now we must create a class with a static method which is going to return a collection of <code>App\Models\BlogPost</code> objects:</p>
-
-<p><em><code>app/Feed/BlogPostFeed.php</code></em></p>
-
-<pre><code class="language-php">namespace App\Feed;
-
-use App\Models\BlogPost;
-use Illuminate\Database\Eloquent\Collection;
-
-class BlogPostFeed
-{
-    public static function getFeedItems(): Collection
-    {
-        return BlogPost::all();
-    } 
-}
-</code></pre>
-
-<p>Back to our config file, the first key for our feed configuration is <code>items</code>,
-which defines where to retrieve the collection of posts.</p>
-
-<p><em><code>app/config/feed.php</code></em></p>
-
-<pre><code class="language-php">return [
-    'feeds' =&gt; [
-        'blog-posts' =&gt; [
-            'items' =&gt; [App\Feed\BlogPostFeed::class, 'getFeedItems']
-            //...
-        ],
-    ]
-];
-</code></pre>
-
-<p>Then you have to define the URL:</p>
-
-<p><em><code>app/config/feed.php</code></em></p>
-
-<pre><code class="language-php">return [
-    'feeds' =&gt; [
-        'blog-posts' =&gt; [
-            //'items' =&gt; [App\Feed\BlogPostFeed::class, 'getFeedItems'],
-            'url' =&gt; '/posts', //https://domain.com/posts
-            //...
-        ],
-    ]
-];
-</code></pre>
-
-<p>Register the routes using a macro <code>feeds</code> included in the package:</p>
-
-<p><em><code>app/routes/web.php</code></em></p>
-
-<pre><code class="language-PHP">//...
-Route::feeds();  //https://domain.com/posts
-</code></pre>
-
-<p>If you wish to add a prefix:</p>
-
-<p><em><code>app/routes/web.php</code></em></p>
-
-<pre><code class="language-PHP">//...
-Route::feeds('rss'); //https://domain.com/rss/posts
-</code></pre>
-
-<p>Following, you must add a <code>title</code>, <code>description</code> and <code>language</code>:</p>
-
-<p><em><code>app/config/feed.php</code></em></p>
-
-<pre><code class="language-php">return [
-    'feeds' =&gt; [
-        'blog-posts' =&gt; [
-            //'items' =&gt; [App\Feed\BlogPostFeed::class, 'getFeedItems'],
-            //'url' =&gt; '/posts',
-            'title' =&gt; 'My feed',
-            'description' =&gt; 'The description of the feed.',
-            'language' =&gt; 'en-US',
-            //...
-        ],
-    ]
-];
-</code></pre>
-
-<p>You can also define the format of the feed and the view that will render it.
-The acceptable values are <code>RSS</code>, <code>atom</code>, or <code>JSON</code>:</p>
-
-<p><em><code>app/config/feed.php</code></em></p>
-
-<pre><code class="language-php">return [
-    'feeds' =&gt; [
-        'blog-posts' =&gt; [
-            //'items' =&gt; [App\Feed\BlogPostFeed::class, 'getFeedItems'],
-            //'url' =&gt; '/posts',
-            //'title' =&gt; 'My feed',
-            //'description' =&gt; 'The description of the feed.',
-            //'language' =&gt; 'en-US',
-            'format' =&gt; 'rss',
-            'view' =&gt; 'feed::rss',
-            //...
-        ],
-    ]
-];
-</code></pre>
-
-<p>There are a few additional options:</p>
-
-<p><em><code>php</code></em></p>
-
-<pre><code class="language-php"> /*
- * The image to display for the feed. For Atom feeds, this is displayed as
- * a banner/logo; for RSS and JSON feeds, it's displayed as an icon.
- * An empty value omits the image attribute from the feed.
- */
-'image' =&gt; '',
-
-/*
- * The mime type to be used in the &lt;link&gt; tag. Set to an empty string to automatically
- * determine the correct value.
- */
-'type' =&gt; '',
-
-/*
- * The content type for the feed response. Set to an empty string to automatically
- * determine the correct value.
- */
-'contentType' =&gt; '',
-</code></pre>
-
-<p>The final result of the config file should look like below:</p>
-
-<p><em><code>app/config/feed.php</code></em></p>
-
-<pre><code class="language-php">return [
-    'feeds' =&gt; [
-        'blog-posts' =&gt; [
-            'items' =&gt; [App\Feed\BlogPostFeed::class, 'getFeedItems'],
-            'url' =&gt; '/posts',
-            'title' =&gt; 'My feed',
-            'description' =&gt; 'The description of the feed.',
-            'language' =&gt; 'en-US',
-            'format' =&gt; 'rss',
-            'view' =&gt; 'feed::rss',
-            'image' =&gt; '',
-            'type' =&gt; '',
-            'contentType' =&gt; '',
-        ],
-    ]
-];
-</code></pre>
-
-<h2>Automatically generate feed links</h2>
-
-<p>Feed readers discover a feed looking for a tag in the head section of your HTML documents:</p>
-
-<p><em><code>html</code></em></p>
-
-<pre><code class="language-html">&lt;link rel="alternate" type="application/atom+xml" title="News" href="/rss/posts"&gt;
-</code></pre>
-
-<p>Add this to your <code>&lt;head&gt;</code>:</p>
-
-<p><em><code>blade</code></em></p>
-
-<pre><code class="language-php">@include('feed::links')
-</code></pre>
-
-<p>Alternatively, use the available blade component:</p>
-
-<p><em><code>blade</code></em></p>
-
-<pre><code class="language-html">&lt;x-feed-links /&gt;
-</code></pre>
-
-<h2>Conclusion</h2>
-
-<p>In this article,
-you've learned how easy it is to add an RSS feed to your website using the <code>laravel-feed</code> package from Spatie.</p>
-
-<p>If you have any comments,
-you can share them in the <a href="https://twitter.com/leopoletto/status/1683975416296493062">discussion on Twitter</a>.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://jigsaw.test/blog/generate-laravel-migrations-from-an-existing-database/</id>
-    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/generate-laravel-migrations-from-an-existing-database/" />
-    <title>Laravel Migrations from an Existing Database</title>
-    <published>2025-01-08T00:00:00+00:00</published>
-    <updated>2025-01-08T00:00:00+00:00</updated>
-    <author>
-        <name>Leonardo Poletto</name>
-    </author>
-    <summary type="html">One of the common challenges when migrating a legacy PHP application to Laravel is creating database migrations based on the existing database.
-
-Depending on the size of the database, it can become an exhausting task.
-I had to do it a few times, but recently I stumbled upon a database with over a hundred tables.
-
-As a programmer, we don’t have the patience to do such a task, 
-and we shouldn&#039;t.......</summary>
-    <content type="html"><![CDATA[
-        <p>One of the common challenges when migrating a legacy PHP application to Laravel is creating database migrations based on the existing database.</p>
-
-<p>Depending on the size of the database, it can become an exhausting task.
-I had to do it a few times, but recently I stumbled upon a database with over a hundred tables.</p>
-
-<p>As a programmer, we don’t have the patience to do such a task, 
-and we shouldn't.
-The first thought is how to automate it.
-With that in mind, I searched for an existing solution, found some packages,
-and picked one by <a href="https://github.com/kitloong/">kitloong</a>,
-the <a href="https://github.com/kitloong/laravel-migrations-generator">Laravel migration generator</a> package.</p>
-
-<h2>Practical example using an existing database structure</h2>
-
-<h3>Creating the tables</h3>
-
-<pre><code class="language-sql">CREATE TABLE permissions
-(
-    id bigint unsigned auto_increment primary key,
-    name varchar(255) not null,
-    guard_name varchar(255) not null,
-    created_at timestamp    null,
-    updated_at timestamp    null,
-    constraint permissions_name_guard_name_unique
-    unique (name, guard_name)
-)
-collate = utf8_unicode_ci;
-</code></pre>
-
-<pre><code class="language-sql">CREATE TABLE roles
-(
-    id bigint unsigned auto_increment primary key,
-    team_id bigint unsigned null,
-    name varchar(255) not null,
-    guard_name varchar(255) not null,
-    created_at timestamp null,
-    updated_at timestamp null,
-    constraint roles_team_id_name_guard_name_unique
-    unique (team_id, name, guard_name)
-)
-collate = utf8_unicode_ci;
-</code></pre>
-
-<pre><code class="language-sql">CREATE TABLE role_has_permissions
-(
-    permission_id bigint unsigned not null,
-    role_id bigint unsigned not null,
-    primary key (permission_id, role_id),
-    constraint role_has_permissions_permission_id_foreign
-    foreign key (permission_id) references permissions (id)
-    on delete cascade,
-    constraint role_has_permissions_role_id_foreign
-    foreign key (role_id) references roles (id)
-    on delete cascade
-)
-collate = utf8_unicode_ci;
-</code></pre>
-
-<pre><code class="language-sql">CREATE INDEX roles_team_foreign_key_index on roles (team_id);
-</code></pre>
-
-<h3>Installing the package</h3>
-
-<pre><code class="language-bash">&gt; composer require --dev kitloong/laravel-migrations-generator
-</code></pre>
-
-<h3>Running the package command that does the magic</h3>
-
-<p>You can specify or ignore the tables you want using <code>--tables=</code> or <code>--ignore=</code> respectively.</p>
-
-<p>Below is the command I ran for the tables we created above. 
-To run for all the tables, don't add any additional filters.</p>
-
-<pre><code class="language-bash">&gt; php artisan migrate:generate --tables="roles,permissions,role_permissions"
-</code></pre>
-
-<p>Command output</p>
-
-<pre><code class="language-bash">&gt; Using connection: mysql
-
-Generating migrations for: permissions,role_has_permissions,roles
-
-Do you want to log these migrations in the migrations table? (yes/no) [yes]:
-&gt; yes
-
-Setting up Tables and Index migrations.
-
-Created: /var/www/html/database/migrations/2023_06_08_132125_create_permissions_table.php
-Created: /var/www/html/database/migrations/2023_06_08_132125_create_role_has_permissions_table.php
-Created: /var/www/html/database/migrations/2023_06_08_132125_create_roles_table.php
-
-Setting up Views migrations.
-
-Setting up Stored Procedures migrations.
-
-Setting up Foreign Key migrations.
-
-Created: /var/www/html/database/migrations/2023_06_08_132128_add_foreign_keys_to_role_has_permissions_table.php
-
-Finished!
-</code></pre>
-
-<h3>Checking the migration files</h3>
-
-<p>Permissions table:</p>
-
-<p><em><code>2023_06_08_132125_create_permissions_table.php</code></em></p>
-
-<pre><code class="language-php">...
-
-Schema::create('roles', function (Blueprint $table) {
-    $table-&gt;bigIncrements('id');
-
-    $table-&gt;unsignedBigInteger('team_id')
-        -&gt;nullable()
-        -&gt;index('roles_team_foreign_key_index');
-
-    $table-&gt;string('name');
-    $table-&gt;string('guard_name');
-    $table-&gt;timestamps();
-
-    $table-&gt;unique(['team_id', 'name', 'guard_name']);
-});
-
-...
-</code></pre>
-
-<p>Roles table:</p>
-
-<p><em><code>2023_06_08_132125_create_role_has_permissions_table.php</code></em></p>
-
-<pre><code class="language-php">...
-
-Schema::create('roles', function (Blueprint $table) {
-    $table-&gt;bigIncrements('id');
-
-    $table-&gt;unsignedBigInteger('team_id')
-        -&gt;nullable()
-        -&gt;index('roles_team_foreign_key_index');
-
-    $table-&gt;string('name');
-    $table-&gt;string('guard_name');
-    $table-&gt;timestamps();
-
-    $table-&gt;unique(['team_id', 'name', 'guard_name']);
-});
-
-...
-</code></pre>
-
-<p>Pivot table:</p>
-
-<p><em><code>2023_06_08_132125_create_roles_table.php</code></em></p>
-
-<pre><code class="language-php">...
-
-Schema::create('role_has_permissions', function (Blueprint $table) {
-    $table-&gt;unsignedBigInteger('permission_id');
-
-    $table-&gt;unsignedBigInteger('role_id')
-        -&gt;index('role_has_permissions_role_id_foreign');
-
-    $table-&gt;primary(['permission_id', 'role_id']);
-});
-
-...
-</code></pre>
-
-<p>Add foreign key to the pivot table:</p>
-
-<p><em><code>2023_06_08_132128_add_foreign_keys_to_role_has_permissions_table.php</code></em></p>
-
-<pre><code class="language-php">...
-
-Schema::table('role_has_permissions', function (Blueprint $table) {
-    $table-&gt;foreign(['permission_id'])
-        -&gt;references(['id'])
-        -&gt;on('permissions')
-        -&gt;onUpdate('NO ACTION')
-        -&gt;onDelete('CASCADE');
-
-    $table-&gt;foreign(['role_id'])
-        -&gt;references(['id'])
-        -&gt;on('roles')
-        -&gt;onUpdate('NO ACTION')
-        -&gt;onDelete('CASCADE');
-});
-
-...
-</code></pre>
-
-<p>This is just one of the challenges when migrating a legacy PHP application to Laravel.</p>
-
-<p>The following post will be about password hashing algorithm incompatibility.</p>
-
-<p><a href="https://twitter.com/leopoletto/status/1667887822764752898">Join the discussion on Twitter.</a></p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://jigsaw.test/blog/schedule-periodic-database-clean-up-on-laravel/</id>
-    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/schedule-periodic-database-clean-up-on-laravel/" />
-    <title>Schedule Database Clean-Up in Laravel for Performance</title>
-    <published>2025-01-01T00:00:00+00:00</published>
-    <updated>2025-01-01T00:00:00+00:00</updated>
-    <author>
-        <name>Leonardo Poletto</name>
-    </author>
-    <summary type="html">For obvious reasons, database tables tend to grow in size as time passes. Therefore, it usually requires occasional tuning to maintain queries performing well.
-
-Some standard techniques are creating indexes, rewriting queries, and even redesigning the database.
-
-But there is another obvious solution that could also be applied, which is pruning data.
-Laravel has a built-in feature for that, and......</summary>
-    <content type="html"><![CDATA[
-        <h2>Introduction</h2>
-
-<p>For obvious reasons, database tables tend to grow in size as time passes. Therefore, it usually requires occasional tuning to maintain queries performing well.</p>
-
-<p>Some standard techniques are creating indexes, rewriting queries, and even redesigning the database.</p>
-
-<p>But there is another obvious solution that could also be applied, which is pruning data.
-Laravel has a built-in feature for that, and can be used in two different ways: <code>Pruning</code> and <code>Mass Pruning</code>:</p>
-
-<h2>Pruning</h2>
-
-<p>Let's say you want to prune soft-deleted users after 90 days from the deletion date.</p>
-
-<p>Add the <code>Illuminate\Database\Eloquent\Prunable</code> trait to the model and implement a <code>prunable</code> method that returns an Eloquent query builder that scopes the query to get the <code>Prunable</code> records.</p>
-
-<p><em><code>app/Models/User.php</code></em></p>
-
-<pre><code class="language-PHP">namespace App\Models;
-
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Prunable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
-class User extends Model
-{
-    use Prunable;
-    use SoftDeletes;
-
-    /**
-     * Get the prunable model query.
-     */
-    public function prunable(): Builder
-    {
-        return static::where('deleted_at', '&lt;=', now()-&gt;subDays(90));
-    }
-}
-</code></pre>
-
-<blockquote>
-  <p>When marking models as <code>Prunable</code>, you may also define a pruning method on the model. This method will be called before the model is deleted
-  <em><a href="https://laravel.com/docs/11.x/eloquent#pruning-models">Official Laravel Documentation</a></em></p>
-</blockquote>
-
-<p>To show an actual application for this method, let's say the user has a profile picture, and it also needs to be deleted from the file storage:</p>
-
-<p><em><code>app/Models/User.php</code></em></p>
-
-<pre><code class="language-PHP">/**
- * Prepare the model for pruning.
- */
-protected function pruning(): void
-{
-    Storage::delete($this-&gt;picture);
-}
-</code></pre>
-
-<p>Now you can run the <code>model:prune</code> Artisan command or schedule it in your application's <code>App\Console\Kernel</code> class.</p>
-
-<p>You can set the desired interval, but in this case, we want to prune the data daily:</p>
-
-<p><em><code>app/Console/Kernel.php</code></em></p>
-
-<pre><code class="language-php">/**
- * Define the application's command schedule.
- */
-protected function schedule(Schedule $schedule): void
-{
-    $schedule-&gt;command('model:prune')-&gt;daily();
-}
-</code></pre>
-
-<p>When you run the <code>model:prune</code> command, it detects models within your application's <code>app/Models</code> that implement the <code>Illuminate\Database\Eloquent\Prunable</code> trait.</p>
-
-<p>In case you have models in a different location, you can use the option <code>--model</code>:</p>
-
-<p><em><code>app/Console/Kernel.php</code></em></p>
-
-<pre><code class="language-php">use App\Module\Models\User;
-
-$schedule-&gt;command('model:prune', [
-    '--model' =&gt; [User::class],
-])-&gt;daily();
-</code></pre>
-
-<p>You can also exclude a <code>Prunable</code> model that would be automatically detected by being in the <code>app/Models</code> directory using the <code>--except</code> option:</p>
-
-<p><em><code>app/Console/Kernel.php</code></em></p>
-
-<pre><code class="language-PHP">$schedule-&gt;command('model:prune', [
-    '--except' =&gt; [AnotherModel::class],
-])-&gt;daily();
-</code></pre>
-
-<p>Sometimes you want to know how many records would be deleted before actually doing it. This is known as a <code>dry-run</code>; you can do it using the <code>--pretend</code> option.</p>
-
-<pre><code class="language-shell">php artisan model:prune --pretend
-</code></pre>
-
-<h2>Mass Pruning</h2>
-
-<p>While pruning retrieves the records and loops them as an eloquent object deleting them individually, which triggers the model events.</p>
-
-<p>The mass pruning runs a single query, it doesn't call the <code>pruning</code> method, and the model events <code>deleting</code> and <code>deleted</code>.</p>
-
-<p><em><code>app/Models/User.php</code></em></p>
-
-<pre><code class="language-PHP">namespace App\Models;
-
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\MassPrunable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
-class User extends Model
-{
-    use MassPrunable;
-    use SoftDeletes;
-
-    /**
-     * Get the prunable model query.
-     */
-    public function prunable(): Builder
-    {
-        return static::where('deleted_at', '&lt;=', now()-&gt;subDays(90));
-    }
-}
-</code></pre>
-
-<h2>Conclusion</h2>
-
-<p>In this article, you've learned how to prune unnecessary data using a built-in Laravel feature and that you can delete everything at once using the <code>Illuminate\Database\Eloquent\MassPrunable</code> trait or record by record with the <code>Illuminate\Database\Eloquent\Prunable</code> trait, which allows you to define a  <code>pruning</code> method to perform any desired action before deleting.</p>
-
-<p>If you have any comments, you can share them in the <a href="https://twitter.com/leopoletto/status/1679668467165716480">discussion on Twitter</a>.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://jigsaw.test/blog/password-confirmation-for-sensitive-actions-on-laravel/</id>
-    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/password-confirmation-for-sensitive-actions-on-laravel/" />
-    <title>Password Confirmation for Sensitive Actions in Laravel</title>
-    <published>2024-12-18T00:00:00+00:00</published>
-    <updated>2024-12-18T00:00:00+00:00</updated>
-    <author>
-        <name>Leonardo Poletto</name>
-    </author>
-    <summary type="html">I recently wrote an article about how Laravel easily allows controlling browser sessions. That article was motivated by a personal bad experience of having my cellphone stolen. To prevent other people in possession of the device from having access and being able to perform actions.
-
-But it took some time for me to access my accounts from another device and disconnect the sessions. Thinking about......</summary>
-    <content type="html"><![CDATA[
-        <p>I recently wrote an article about how Laravel easily allows <a href="https://leopoletto.com/invalidating-sessions-on-other-devices-on-laravel/">controlling browser sessions</a>. That article was motivated by a personal bad experience of having my cellphone stolen. To prevent other people in possession of the device from having access and being able to perform actions.</p>
-
-<p>But it took some time for me to access my accounts from another device and disconnect the sessions. Thinking about how to prevent others from performing sensitive actions, I remembered that many services I use requests password from time to time for specific actions, such as:</p>
+<h3>Performance</h3>
 
 <ul>
-<li>Disconnecting other devices</li>
-<li>Changing password</li>
-<li>Deleting account</li>
-<li>Deleting important resources</li>
+<li>Metrics (core scoring metrics)</li>
+<li>Diagnostics (fix opportunities)</li>
+<li>Hidden (supporting “insights”)</li>
 </ul>
 
-<p>Not surprisingly, <a href="https://laravel.com/docs/10.x/authentication#the-password-confirmation-form">Laravel has a feature to handle that</a> in a pretty easy way:</p>
-
-<h2>Protecting Routes</h2>
-
-<p>First, you need to know how to protect the routes leading the user to perform sensitive actions.</p>
-
-<p>Add the built-in middleware <code>\Illuminate\Auth\Middleware\RequirePassword::class</code>, which is defined in the <code>app/Http/Kernel.php</code> file, having <code>password.confirm</code> as the alias.</p>
-
-<p>Let's say you want to prevent the user from disconnecting other devices previously logged in.</p>
-
-<p><em><code>app/routes/web.php</code></em></p>
-
-<pre><code class="language-PHP">Route::get('/disconnect-other-devices', function () {
-    // ...
-})-&gt;middleware(['auth', 'password.confirm']);
-</code></pre>
-
-<p>As you can see, the <code>password.confirm</code> middleware is set. It checks if the session item <code>auth.password_confirmed_at</code> has expired
-based on the <code>auth.password_timeout</code> config value. By default, the value represents three hours.</p>
-
-<p>Laravel session lifetime represents two hours by default. Considering you keep those values, the <code>password.confirm</code> middleware
-will only act upon user sessions that were set to be remembered. Of course, you can increase the session lifetime, and the password
-confirmation would work for all session cases.</p>
-
-<p>By default, the middleware redirects the user to the named route <code>password.confirm</code>. As I explain in the following section, you can change the route name.</p>
-
-<p>If your request expects a <code>JSON</code> response, it shows an error message instead of redirecting. This is how the middleware handles it:</p>
-
-<p><em><code>\Illuminate\Auth\Middleware\RequirePassword::class</code></em></p>
-
-<pre><code class="language-php">//...
-if ($request-&gt;expectsJson()) {
-     return $this-&gt;responseFactory-&gt;json([
-         'message' =&gt; 'Password confirmation required.',
-     ], 423);
- }
-
-return $this-&gt;responseFactory-&gt;redirectGuest(
-    $this-&gt;urlGenerator-&gt;route($redirectToRoute ?: 'password.confirm')
-);
-//...
-</code></pre>
-
-<h2>The Password Confirmation Form</h2>
-
-<p>If the request does not expect a <code>JSON</code> response, you may display a form allowing the password input. The route should be named <code>password.confirm</code> by default.</p>
-
-<p><em><code>app/routes/web.php</code></em></p>
-
-<pre><code class="language-PHP">Route::get('/confirm-password', function () {
-    return view('auth.confirm-password');
-})-&gt;middleware('auth')-&gt;name('password.confirm');
-</code></pre>
-
-<p>You may change it by using passing the route name when setting the middleware:</p>
-
-<p><em><code>app/routes/web.php</code></em></p>
-
-<pre><code class="language-PHP">Route::get('/disconnect-other-devices', function () {
-    // ...
-})-&gt;middleware(['auth', 'password.confirm:my-custom-named-route']);
-
-Route::get('/confirm-password', function () {
-    return view('auth.confirm-password');
-})-&gt;middleware('auth')-&gt;name('my-custom-named-route');
-</code></pre>
-
-<h2>Confirming The Password</h2>
-
-<p>To confirm it, you need to validate and call the <code>passwordConfirmed</code> method as below:</p>
-
-<pre><code class="language-php">if (! Hash::check($request-&gt;password, $request-&gt;user()-&gt;password)) {
-    return back()-&gt;withErrors([
-        'password' =&gt; ['The provided password does not match our records.']
-    ]);
-}
-
-$request-&gt;session()-&gt;passwordConfirmed();
-
-return redirect()-&gt;intended();
-</code></pre>
-
-<p>If you are performing an Ajax request:</p>
-
-<pre><code class="language-PHP">if (! Hash::check($request-&gt;password, $request-&gt;user()-&gt;password)) {
-    return response()-&gt;json([
-        'message' =&gt; 'The provided password does not match our records',
-    ], 422);
-}
-
-$request-&gt;session()-&gt;passwordConfirmed();
-
-return response()-&gt;noContent();
-</code></pre>
-
-<h2>In Closing</h2>
-
-<p>In this post, you've learned how to protect sensitive actions in your Laravel applications.</p>
-
-<p>If you have any comments, you can share them in the <a href="https://twitter.com/leopoletto/status/1677710630692741125">discussion on Twitter</a>.</p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://jigsaw.test/blog/migrate-password-from-a-legacy-php-application-to-laravel/</id>
-    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/migrate-password-from-a-legacy-php-application-to-laravel/" />
-    <title>Migrate Passwords from a Legacy PHP App to Laravel</title>
-    <published>2024-12-11T00:00:00+00:00</published>
-    <updated>2024-12-11T00:00:00+00:00</updated>
-    <author>
-        <name>Leonardo Poletto</name>
-    </author>
-    <summary type="html">Migrating a legacy PHP application to Laravel will probably require a custom hashing driver.
-
-This happens because Laravel’s default hashing driver is bcrypt and has argon as another built-in option, while &lt;code&gt;MD5&lt;/code&gt;, &lt;code&gt;SHA-1&lt;/code&gt;, &lt;code&gt;SHA-256&lt;/code&gt;, and &lt;code&gt;SHA-512&lt;/code&gt; were and still are widely used, especially when the application does not rely on a modern framework.......</summary>
-    <content type="html"><![CDATA[
-        <p>Migrating a legacy PHP application to Laravel will probably require a custom hashing driver.</p>
-
-<p>This happens because <a href="https://laravel.com/docs/10.x/hashing">Laravel’s default hashing driver</a> is <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt</a> and has <a href="https://en.wikipedia.org/wiki/Argon2">argon</a> as another built-in option, while <code>MD5</code>, <code>SHA-1</code>, <code>SHA-256</code>, and <code>SHA-512</code> were and still are widely used, especially when the application does not rely on a modern framework.</p>
-
-<p>Considering that we already have a table storing the hashed passwords, we need to make Laravel use the correct hash algorithm to compare the users’ raw passwords when authenticating.</p>
-
-<h2>Create a custom hash drive on Laravel</h2>
-
-<p>It should implement the <a href="https://laravel.com/api/10.x/Illuminate/Contracts/Hashing/Hasher.html"><code>Illuminate\Contracts\Hashing\Hasher</code></a> 
-interface and extend the <a href="https://laravel.com/api/10.x/Illuminate/Hashing/AbstractHasher.html"><code>Illuminate\Hashing\AbstractHasher</code></a> class:</p>
-
-<p><em><code>app/Hashing/Md5Hasher.php</code></em></p>
-
-<pre><code class="language-php">namespace App\Hashing;
-
-use Illuminate\Contracts\Hashing\Hasher;
-use Illuminate\Hashing\AbstractHasher;
-
-class Md5Hasher extends AbstractHasher implements Hasher
-{
-    public function make($value, array $options = []): string
-    {
-        return md5($value . config('hashing.md5.salt'));
-    }
-
-    public function check($value, $hashedValue, array $options = []): bool
-    {
-        return $this-&gt;make($value) === $hashedValue;
-    }
-
-    public function needsRehash($hashedValue, array $options = []): bool
-    {
-        return false;
-    }
-}
-</code></pre>
-
-<h2>Register the new driver in your application</h2>
-
-<p>Register it in the <code>boot</code> method of the following class:</p>
-
-<p><em><code>app/Providers/AuthServiceProvider.php</code></em></p>
-
-<pre><code class="language-php">namespace App\Providers;
-
-use App\Hashing\Md5Hasher;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\ServiceProvider;
-
-class AuthServiceProvider extends ServiceProvider
-{
-    // ...
-
-    public function boot(): void
-    {
-        // ...
-
-        Hash::extend('md5', static function () {
-            return new Md5Hasher();
-        });
-    }
-}
-</code></pre>
-
-<h2>Define the hashing SALT (Optional)</h2>
-
-<p>Your legacy application may use a SALT to concatenate before hashing the password. We can define it in the config and delegate its value to the <code>.env</code> file.
-If your legacy application does not use SALT, you won't need to add it to the <code>.env</code> file.</p>
-
-<p><em><code>config/hashing.php</code></em></p>
-
-<pre><code class="language-php">return [
-    // ...
-
-    'md5' =&gt; [
-        'salt' =&gt; env('MD5_SALT'),
-    ],
-];
-</code></pre>
-
-<p><em><code>.env</code></em></p>
-
-<pre><code class="language-dsconfig">MD5_SALT=my_salt
-</code></pre>
-
-<h2>Update the passwords</h2>
-
-<p>To rehash the password, we can intercept the users' attempts to login and check if the <code>MD5</code> hashed password matches the one in the database. 
-We can do that by listening to the <a href="https://laravel.com/api/10.x/Illuminate/Auth/Events/Attempting.html"><code>Illuminate\Auth\Events\Attempting::class</code></a> event.</p>
-
-<pre><code class="language-shell">php artisan make:listener UpdateMd5Password
-</code></pre>
-
-<p><em><code>app/Providers/EventServiceProvider.php</code></em></p>
-
-<pre><code class="language-php">class EventServiceProvider extends ServiceProvider
-{
-    //...
-
-    protected $listen = [
-
-        //...
-
-        'Illuminate\Auth\Events\Attempting::class' =&gt; [
-            'App\Listeners\UpdateMd5Password::class',
-        ],
-    ];
-
-    //...
-}
-</code></pre>
-
-<p>The following implementation checks if the credentials match the legacy algorithm (<code>MD5</code>) and update to the new one. 
-The authentication flow continues, and the user will be successfully authenticated using the default driver (<code>bcrypt</code>).</p>
-
-<p><em><code>app/Listeners/UpdateSha1Password.php</code></em></p>
-
-<pre><code class="language-php">namespace App\Listeners;
-
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-
-class UpdateMd5Password
-{
-    public function handle(object $event): void
-    {
-        $user = User::where('email', $event-&gt;credentials['email'])-&gt;first();
-
-        $md5Password = Hash::driver('md5')-&gt;make($event-&gt;credentials['password']);
-
-        if ($user &amp;&amp; $user-&gt;getAuthPassword() === $md5Password) {
-            $user-&gt;password = Hash::make($event-&gt;credentials['password']);
-            $user-&gt;save();
-        }
-    }
-}
-</code></pre>
-
-<h2>In closing</h2>
-
-<p>You may have another hashing algorithm on your legacy PHP application. You can make the necessary changes to achieve the same behavior.</p>
-
-<p><a href="https://twitter.com/leopoletto/status/1669682506633715712">Join the discussion on Twitter.</a></p>
-    ]]></content>
-</entry>
-            <entry>
-    <id>https://jigsaw.test/blog/invalidating-sessions-on-other-devices-on-laravel/</id>
-    <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/invalidating-sessions-on-other-devices-on-laravel/" />
-    <title>Invalidating Sessions on Other Devices in Laravel</title>
-    <published>2024-12-04T00:00:00+00:00</published>
-    <updated>2024-12-04T00:00:00+00:00</updated>
-    <author>
-        <name>Leonardo Poletto</name>
-    </author>
-    <summary type="html">Recently I had my cellphone stolen and realized how many apps don&#039;t have a session control feature. I couldn’t log out of that device.
-
-Fortunately, Laravel provides a way to invalidate and &quot;log out&quot; an active user&#039;s sessions on other devices without invalidating the session on their current device.
-
-Below, I list a few cases of when this feature might be helpful:
-
-
-The user loses or has their......</summary>
-    <content type="html"><![CDATA[
-        <p>Recently I had my cellphone stolen and realized how many apps don't have a session control feature. I couldn’t log out of that device.</p>
-
-<p>Fortunately, Laravel provides a way to invalidate and "log out" an active user's sessions on other devices without invalidating the session on their current device.</p>
-
-<p>Below, I list a few cases of when this feature might be helpful:</p>
+<h3>Accessibility (A11y)</h3>
 
 <ul>
-<li>The user loses or has their device stolen.</li>
-<li>The user changes their password.</li>
-<li>The application must not allow multiple sessions at the same time.</li>
+<li>Navigation</li>
+<li>ARIA</li>
+<li>Color &amp; Contrast</li>
+<li>Tables &amp; Lists</li>
+<li>Language</li>
+<li>Best Practices</li>
+<li>A11y (Ungrouped audits)</li>
 </ul>
 
-<h2>Invalidating Sessions On Other Devices</h2>
+<h3>Best Practices</h3>
 
-<p>To invalidate the user's session on all devices except the current one, you need to call the <code>Auth::logoutOtherDevices</code> method. It requires the users to confirm the password.</p>
+<ul>
+<li>UX</li>
+<li>JavaScript Libraries</li>
+</ul>
 
-<p>This is important because if the user lost or had a cellphone stolen, you can't allow someone to log out of all sessions using that device.</p>
+<h3>SEO</h3>
 
-<pre><code class="language-php">use Illuminate\Support\Facades\Auth;
+<ul>
+<li>Crawl</li>
+</ul>
 
-Auth::logoutOtherDevices($currentPassword);
-</code></pre>
+<p>If you want to receive updates on the course development access <a href="https://wizardcompass.com/">wizardcompass.com</a>, subscribe to the early access list.</p>
 
-<p>For the <code>logoutOtherDevices</code> method to work, Laravel provides <code>Illuminate\Session\Middleware\AuthenticateSession</code>middleware which detects password hash changes, logs out the user immediately, and fires the <code>Illuminate\Auth\Events\CurrentDeviceLogout</code> event.</p>
+<hr />
+
+<h2>Privacy in the Browser</h2>
+
+<p>While digging into audits, I noticed how invisible privacy issues are. So I built a <strong>Chrome extension</strong> that shows what sites are collecting and doing in the background.</p>
+
+<p>I never published it, but it taught me how much is hidden — and how easily developers embed third-party scripts without realizing the trade-offs.</p>
+
+<p>The trickier part was mapping players, so I've leveraged <a href="https://github.com/HTTPArchive/wappalyzer">Wappalyzer</a> data from their last open source version, which HTTP Archive uses to enrich its dataset.</p>
+
+<p>I will write an article about it in detail and open-source the project soon.</p>
+
+<hr />
+
+<h2>Fonts and Readability</h2>
+
+<p>Color contrast checks got me wondering: why do formulas ignore the font itself? JetBrains Mono and Cabin are not the same.</p>
+
+<p>So I started parsing Google Fonts with <code>fonttools</code> and <code>jq</code>, looking at metrics, x-height, and spacing. That became the seed for <strong>Font Lint</strong>.</p>
+
+<p>You can take a look at <a href="https://fontlint.com">fontlint.com</a> and subscribe to be the first to test new font optimization tools and have access to datasets.</p>
+
+<hr />
+
+<h2>Colors and Accessibility</h2>
+
+<p>I love playing with colors, but I wanted palettes that were not only harmonious, but also accessible. I experimented with <strong>Delta E 2000</strong> to ensure that the generated colors were perceptually distinct.</p>
+
+<p>Then I added a <strong>contrast fixer</strong>: it suggests tweaks to color, font size, or weight until the text meets WCAG accessibility standards.</p>
+
+<p><img src="https://local.leopoletto.test/assets/images/posts/contrast-matrix.webp" alt="Contrast Matrix Built by Leonardo Poletto" /></p>
+
+<hr />
+
+<h2>Seeing Differently</h2>
+
+<p>Accessibility isn’t abstract for me — I have high myopia and astigmatism. That’s what led me to simulate <strong>color vision deficiencies (CVDs)</strong>.</p>
+
+<p>I built transformations that show how colors and images look under different impairments, then validated whether the differences were still perceptible.</p>
+
+<p><img src="https://local.leopoletto.test/assets/images/posts/cvd-matrix-before.webp" alt="Contrast Matrix Built by Leonardo Poletto" /></p>
 
 <blockquote>
-  <p>By default, the <code>AuthenticateSession</code> middleware may be attached to a route using the <code>auth.session</code> route middleware alias as defined in your application's HTTP kernel <br>
-  <em><a href="https://laravel.com/docs/10.x/authentication#invalidating-sessions-on-other-devices">Official Laravel Documentation</a></em></p>
+  <p>Ratings are calculated by first converting the colors to their simulated counterparts. The simulated values approximate the colors that would be seen by the fully deficient vision of each particular type. The simulated colors are then compared using the <code>DeltaE 2000</code> color difference formula. A color difference value of <code>11</code> or <strong>more</strong> is <strong>considered passing</strong>; anything lower is too similar to distinguish.<br><br>
+  The color difference meters visualize the <code>DeltaE</code> value to indicate how different the colors would appear for each color vision deficiency.<br>
+  <br><small>Source: <a href="https://leonardocolor.io/tools.html">https://leonardocolor.io/tools.html</a></small></p>
 </blockquote>
 
-<p><em><code>routes/web.php</code></em></p>
+<p><img src="https://local.leopoletto.test/assets/images/posts/cvd-matrix-after.webp" alt="Contrast Matrix Built by Leonardo Poletto" /></p>
 
-<pre><code class="language-php">Route::middleware(['auth', 'auth.session'])-&gt;group(function () {
-    Route::get('/', function () {
-        // ...
-    });
-});
-</code></pre>
+<p>I've explored images, which I will also write about. This is an unseen world by most people, and I intend to share my discoveries.</p>
 
-<p>Then you might already be thinking about what the <code>logoutOtherDevices</code> does. It rehashes the password. Huh, but does the hash change even using the same password? Yes, it does!</p>
+<hr />
 
-<blockquote>
-  <p>Laravel Hash::make() explained 
-  <em>From: <a href="https://mnshankar.wordpress.com/2014/03/29/laravel-hash-make-explained/">mnshankar.wordpress.com</a></em></p>
-</blockquote>
+<h2>Next Steps</h2>
 
-<h2>Invalidating session of a specific device</h2>
-
-<p>That is possible, but you must manage sessions using the database driver.
-This allows querying the sessions and displaying a list to the user to choose a specific session to invalidate.</p>
-
-<p>The database driver needs a table. You may use the <code>session:table</code> artisan command to generate this migration.</p>
-
-<pre><code class="language-shell">php artisan session:table
-
-php artisan migrate
-</code></pre>
-
-<p>Set the driver in the <code>config/session.php</code> file as a database:</p>
-
-<p><em><code>config/session.php</code></em></p>
-
-<pre><code class="language-php">//...
-'driver' =&gt; env('SESSION_DRIVER', 'database')
-//...
-</code></pre>
-
-<p>Or via <code>SESSION_DRIVER</code> attribute on the env file:</p>
-
-<p><em><code>env</code></em></p>
-
-<pre><code class="language-dsconfig">SESSION_DRIVER=database
-</code></pre>
-
-<p>Then create a model for the session table:</p>
-
-<pre><code class="language-shell">php artisan make:model Session
-</code></pre>
-
-<p>Create the relationships:</p>
-
-<p><em><code>app/Models/Session.php</code></em></p>
-
-<pre><code class="language-php">namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-class Session extends Model
-{
-    public $incrementing = false;
-
-    public function user(): BelongsTo
-    {
-        return $this-&gt;belongsTo(User::class);
-    }
-}
-</code></pre>
-
-<p><em><code>app/Models/User.php</code></em></p>
-
-<pre><code class="language-php">namespace App\Models;
-
-//...
-use Illuminate\Database\Eloquent\Relations\HasMany;
-
-class User extends Authenticatable
-{
-    //...
-    public function sessions(): HasMany
-    {
-        return $this-&gt;hasMany(Session::class);
-    }
-}
-</code></pre>
-
-<p>Now you can list the sessions:</p>
-
-<pre><code class="language-php">$user = auth()-&gt;user();
-
-$sessions = $user-&gt;sessions()
-    -&gt;select('id', 'ip_address', 'user_agent', 'last_activity')
-    -&gt;get();
-
-dump($sessions-&gt;toArray());
-</code></pre>
-
-<p>Example of how it should look like:</p>
-
-<pre><code class="language-php">array:3 [▼ // routes/web.php:18
-  0 =&gt; array:4 [▶
-    "id" =&gt; "J9KBJgsqKWRu4JGhNpTF73EBhGXD9FneIR2vzEqX"
-    "ip_address" =&gt; "217.240.75.140"
-    "user_agent" =&gt; "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ..."
-    "last_activity" =&gt; 1688043153
-  ]
-  1 =&gt; array:4 [▶
-    "id" =&gt; "mfmRbbeR803hPpi0uLlPYtWaahqgw6CglEu5UMv7"
-    "ip_address" =&gt; "21.51.178.175"
-    "user_agent" =&gt; "Mozilla/5.0 (iPhone; CPU iPhone OS 11_6_9; like Mac OS X) ..."
-    "last_activity" =&gt; 1688043136
-  ]
-  2 =&gt; array:4 [▶
-    "id" =&gt; "VCkIFZN0zjKq808gvps7haz8XzOkOjnxVlZQifwe"
-    "ip_address" =&gt; "25.31.180.18"
-    "user_agent" =&gt; "Mozilla / 5.0 (compatible; MSIE 8.0; Windows; U; Windows NT 10.0; WOW64; en-US Trident / 4.0)"
-    "last_activity" =&gt; 1688043145
-  ]
-]
-</code></pre>
-
-<p>Finally, to destroy a specific session, you need to delete it from the database. In the example below, we are disconnecting the iPhone:</p>
-
-<pre><code class="language-php">$user-&gt;sessions()
-    -&gt;where('id', 'mfmRbbeR803hPpi0uLlPYtWaahqgw6CglEu5UMv7')
-    -&gt;delete();
-</code></pre>
-
-<h2>In closing</h2>
-
-<p>In this post, you’ve learned the importance of session control per device and how it can be achieved using Laravel.</p>
-
-<p>If you have any comments, you can share them in the <a href="https://twitter.com/leopoletto/status/1674600819910385665">discussion on Twitter</a>.</p>
+<p>This is just the beginning of Open Lab. Each post will unpack one of these projects, with more code, demos, and lessons. I’m not chasing a schedule — I’ll publish as I can. But I will publish.</p>
     ]]></content>
 </entry>
             <entry>
     <id>https://jigsaw.test/blog/about/</id>
     <link type="text/html" rel="alternate" href="https://jigsaw.test/blog/about/" />
     <title>About Me: Building Better Web Foundations</title>
-    <published>2024-11-27T00:00:00+00:00</published>
-    <updated>2024-11-27T00:00:00+00:00</updated>
+    <published>2025-08-10T00:00:00+00:00</published>
+    <updated>2025-08-10T00:00:00+00:00</updated>
     <author>
         <name>Leonardo Poletto</name>
     </author>

@@ -2,7 +2,7 @@
     'page' => $page
 ])
 
-<header class="flex flex-col gap-8 md:gap-16 my-5 md:my-16">
+<header class="flex flex-col gap-8 md:gap-16 my-5 md:mb-16">
     <div class="flex md:items-base flex-col gap-4 md:flex-row border-b pb-4 border-gray-300">
         <span class="flex">
             <span class="flex gap-8 items-base justify-center">
@@ -22,7 +22,7 @@
     </div>
     <div class="flex flex-col gap-5 ">
         <h1 class="font-serif  tracking-tight font-semibold text-brand-secondary-100 text-3xl md:text-4xl leading-snug">{{ $page->title }}</h1>
-        <p class="md:text-xl font-light text-gray-800 data-label:before:content-[attr(data-label)] before:font-serif  before:text-brand-secondary-200 before:uppercase before:text-base before:font-semibold before:tracking-wider gap-2 leading-relaxed"
+        <p class="md:text-xl text-gray-800 data-label:before:content-[attr(data-label)] before:font-serif  before:text-brand-secondary-200 before:uppercase before:text-base before:font-semibold before:tracking-wider gap-2 leading-loose"
            data-label="Quick Summary: ">{{ $page->description  }}
         </p>
     </div>

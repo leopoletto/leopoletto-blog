@@ -2,14 +2,14 @@
 extends: _layouts.post
 section: content
 title: "About Me: Building Better Web Foundations"
-date: 2024-11-27
+date: 2025-08-10
 description: Learn about my journey as a technologist focused on web standards, accessibility, privacy, and digital ethics.
 featured: true
 published: true
 type: page
 image: "about.webp"
 cover: "about.webp"
-categories: ["journal"]
+categories: ["open-lab"]
 ---
 
 ## Hi there 👋 — I’m **Leonardo Poletto**

@@ -9,6 +9,7 @@
         "@tailwindcss/postcss": "^4.1.10",
         "@tighten/jigsaw-vite-plugin": "^1.0.0",
         "highlight.js": "^11.11.1",
+        "puppeteer": "^24.17.0",
         "tailwindcss": "^4.1.10",
         "vite": "^6.3.5"
     },

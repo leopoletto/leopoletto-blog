@@ -1,1 +1,1 @@
-<p class="max-w-4xl">Hi there, Software Engineer, focusing on web standards, accessibility, privacy, and performance. Creates tools for insights and empowers teams through education. </p>
+<p class="max-w-4xl">Hi there, Software Engineer, focusing on web standards, accessibility, privacy, and performance. <br> Creates tools for insights and empowers teams through education. </p>

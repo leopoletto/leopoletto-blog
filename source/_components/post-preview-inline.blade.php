@@ -23,7 +23,7 @@
                 <a href="{{ $post->getUrl() }}" title="Read more: {{ $post->title }}"
                    class=" text-brand-secondary-100 text-2xl">{{ $post->title }}</a>
             </h2>
-            <p class="text-gray-800 text-lg leading-relaxed mb-4">{{ $post->description }}</p>
+            <p class="text-gray-800 text-[17px] leading-loose mb-4">{{ $post->description }}</p>
         </div>
     </div>
 </div>

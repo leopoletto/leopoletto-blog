@@ -22,7 +22,9 @@ return [
             }
         ],
         'categories' => [
+            'author' => 'Leonardo Poletto',
             'path' => 'categories/{filename}',
+            'sort' => '-date',
             'posts' => function ($page, $allPosts) {
                 return $allPosts->filter(function ($post) use ($page) {
                     return $post->categories && in_array($page->getFilename(), $post->categories, true);

@@ -14,7 +14,7 @@
                 @yield('content')
             </section>
 
-            <section class="grid md:grid-cols-3 w-full md:gap-x-10 gap-y-4 md:gap-y-10 md:mt-10 px-4 md:px-0">
+            <section class="w-full flex flex-col gap-y-10 mt-16">
                 @foreach ($page->posts($posts) as $post)
                     @includeWhen($post->isFeatured(), '_components.post-preview-inline')
                 @endforeach

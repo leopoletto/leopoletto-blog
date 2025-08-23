@@ -45,10 +45,9 @@
     <link rel="mask-icon" href="{{$page->baseUrl . 'favicon/safari-pinned-tab.svg' }}" color="#0a0033">
     <link rel="home" href="{{ str($page->baseUrl)->beforeLast('/') }}">
 
-    <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/jetbrains-mono.css' }}">
-    <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/mozilla-headline.css' }}">
-    <link rel="stylesheet" href="{{$page->baseUrl . 'assets/fonts/mozilla-text.css' }}">
-
+    <link rel="preconnect" href="https://cdn.fontlint.com">
+    <link href="https://cdn.fontlint.com/leopoletto/jetbrains-mono.css" rel="stylesheet">
+    <link href="https://cdn.fontlint.com/leopoletto/merriweather.css" rel="stylesheet">
     @viteRefresh()
     <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
     <style>
@@ -64,15 +63,16 @@
     <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
 </head>
 <body class="min-h-screen bg-white font-sans">
-<header x-data="{ light: true, wave: false }" class="py-10 px-5 flex items-center">
-    <div class="container items-center justify-around mx-auto flex max-w-4xl flex-col gap-2 md:flex-row md:gap-10">
+
+<header x-data="{ light: true }" class="py-10 px-5 flex items-center">
+    <div class="container items-center justify-center mx-auto flex max-w-6xl flex-col gap-2 md:flex-row md:gap-10">
         <div class="hidden md:block border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
             <a href="{{ str($page->baseUrl)->beforeLast('/') }}"
                :class="{'motion-safe:animate-insight': light}"
                class="relative z-30 rounded-2xl self-baseline md:block md:w-fit md:overflow-clip">
                 <img alt="A detailed headshot of a man with dark hair, light eyes, and stubble, wearing a black turtleneck and looking directly at the camera with a calm expression"
                      class="-scale-x-100 w-[200px] rounded-2xl md:w-[200px] md:min-w-[200px]"
-                     src="{{ $page->baseUrl . 'assets/img/profile-q90-w240.webp' }}"/>
+                     src="{{ $page->baseUrl . 'assets/img/profile-resized-240.webp' }}"/>
             </a>
             <span class="transition-all backdrop-blur-md backdrop-saturate-100 backdrop-xs backdrop-brightness-150 w-full aspect-square absolute left-0 top-0 z-20"></span>
             <span class="bg-[url('/assets/img/profile-q90-w240.webp')] bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
@@ -95,17 +95,13 @@
                             <li>
                                 <x-partials.menu-link
                                         href="{{ $page->baseUrl . 'blog/about'  }}"
-                                        @mouseenter.stop="wave = true"
-                                        @mouseleave.stop="wave = false"
                                         title="About Leonardo Poletto"
                                 >About
                                 </x-partials.menu-link>
                             </li>
                             <li>
-                                <x-partials.menu-link href="{{ $page->baseUrl . 'tools-and-open-source'  }}"
-                                          title="Learn more about tools"
-                                          @mouseenter.stop="light = true"
-                                          @mouseleave.stop="light = false">Open Source
+                                <x-partials.menu-link href="{{ str($page->baseUrl)->append('categories/open-lab')  }}"
+                                                      title="Learn more about tools">Open Lab
                                 </x-partials.menu-link>
                             </li>
                         </ul>
@@ -116,15 +112,12 @@
     </div>
 </header>
 
-<main class="container mx-auto w-full max-w-4xl px-5 flex-auto overflow-hidden">
+<main class="container mx-auto w-full max-w-5xl px-5 flex-auto overflow-hidden">
     @yield('body')
 </main>
 
 <footer class="px-6 py-6 text-center border-t border-t-brand-secondary-400 md:px-0">
-    <ul class="flex gap-5 justify-center items-center">
-        <li class="text-base text-brand-secondary-100 after:content-['✦'] after:text-base after:ml-5">
-            No tracking. No cookies. Just content.
-        </li>
+    <ul class="flex flex-col md:flex-row gap-5 justify-center items-center">
         <li class="text-base text-brand-secondary-100">
             Built with purpose. Maintained with integrity.
         </li>
