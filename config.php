@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => 'https://local.leopoletto.test/',
+    'baseUrl' => 'https://leopoletto.dev/',
     'production' => false,
     'siteName' => 'Leonardo Poletto',
     'siteDescription' => 'Professional portrait of Leonardo Poletto, a confident, well-groomed man with short dark hair, wearing a dark blue shirt, against a modern, neutral-toned background',

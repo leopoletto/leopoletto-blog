@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Leonardo Poletto</title>
-    <link href="https://local.leopoletto.test/blog" />
-    <link type="application/atom+xml" rel="self" href="https://local.leopoletto.test/blog/feed.atom" />
-    <updated>2025-08-23T13:53:55+00:00</updated>
-    <id>https://local.leopoletto.test/blog/feed.atom</id>
+    <link href="https://leopoletto.dev/blog" />
+    <link type="application/atom+xml" rel="self" href="https://leopoletto.dev/blog/feed.atom" />
+    <updated>2025-08-23T13:56:35+00:00</updated>
+    <id>https://leopoletto.dev/blog/feed.atom</id>
     <author>
         <name>Leonardo Poletto</name>
     </author>
                 <entry>
-    <id>https://local.leopoletto.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship/</id>
-    <link type="text/html" rel="alternate" href="https://local.leopoletto.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship/" />
+    <id>https://leopoletto.dev/blog/open-lab-a-shift-from-checklist-to-craftsmanship/</id>
+    <link type="text/html" rel="alternate" href="https://leopoletto.dev/blog/open-lab-a-shift-from-checklist-to-craftsmanship/" />
     <title>Open Lab: A Shift from Checklist to Craftsmanship</title>
     <published>2025-08-18T00:00:00+00:00</published>
     <updated>2025-08-18T00:00:00+00:00</updated>
@@ -140,8 +140,8 @@ It has been seven months since I wrote my last line of code for Student Crowd, t
     ]]></content>
 </entry>
             <entry>
-    <id>https://local.leopoletto.test/blog/about/</id>
-    <link type="text/html" rel="alternate" href="https://local.leopoletto.test/blog/about/" />
+    <id>https://leopoletto.dev/blog/about/</id>
+    <link type="text/html" rel="alternate" href="https://leopoletto.dev/blog/about/" />
     <title>About Me: Building Better Web Foundations</title>
     <published>2025-08-10T00:00:00+00:00</published>
     <updated>2025-08-10T00:00:00+00:00</updated>
