@@ -1,4 +1,3 @@
-User-agent: *
-Disallow: /
-Disallow: /cgi-bin/
 Sitemap: sitemap.xml
+User-agent: *
+Disallow:
