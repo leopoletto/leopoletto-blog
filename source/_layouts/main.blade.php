@@ -48,6 +48,11 @@
     <link rel="preconnect" href="https://cdn.fontlint.com">
     <link href="https://cdn.fontlint.com/leopoletto/jetbrains-mono.css" rel="stylesheet">
     <link href="https://cdn.fontlint.com/leopoletto/merriweather.css" rel="stylesheet">
+
+    @if ($page->production)
+    <script defer data-domain="leopoletto.dev" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.tagged-events.js"></script>
+    @endif
+
     @viteRefresh()
     <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
     <style>
