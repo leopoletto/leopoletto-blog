@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Leonardo Poletto</title>
+    <link href="https://local.leopoletto.test/blog" />
+    <link type="application/atom+xml" rel="self" href="https://local.leopoletto.test/blog/feed.atom" />
+    <updated>2025-08-23T13:20:20+00:00</updated>
+    <id>https://local.leopoletto.test/blog/feed.atom</id>
+    <author>
+        <name>Leonardo Poletto</name>
+    </author>
+                <entry>
+    <id>https://local.leopoletto.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship/</id>
+    <link type="text/html" rel="alternate" href="https://local.leopoletto.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship/" />
+    <title>Open Lab: A Shift from Checklist to Craftsmanship</title>
+    <published>2025-08-18T00:00:00+00:00</published>
+    <updated>2025-08-18T00:00:00+00:00</updated>
+    <author>
+        <name>Leonardo Poletto</name>
+    </author>
+    <summary type="html">There’s one side of me that says writing here again is freedom, and another side that says it’s dumbness. Maybe both are true.
+
+It has been seven months since I wrote my last line of code for Student Crowd, the company where I worked for over a year. As soon as I received the notice that my contract wouldn’t be renewed, I did what I was used to doing — what many developers do: clean the......</summary>
+    <content type="html"><![CDATA[
+        <p>There’s one side of me that says writing here again is freedom, and another side that says it’s dumbness. Maybe both are true.</p>
+
+<p>It has been seven months since I wrote my last line of code for Student Crowd, the company where I worked for over a year. As soon as I received the notice that my contract wouldn’t be renewed, I did what I was used to doing — what many developers do: clean the dust off an old blog and start writing again. This time it felt different. I wasn’t just between jobs. I was let go, and though I had been in that position before, this time I was struggling to maintain my mental resilience.</p>
+
+<p>What I didn’t tell anyone is that I’m an addict. I’ve been sober since then — seven months, the longest stretch since I recognized my abuse patterns at 23. Post-pandemic, it hit me harder than ever.</p>
+
+<p>Every company I’ve worked for gave me second, third, and sometimes more chances. They didn’t want to let me go, but I became the shading guy — disappearing slowly. Still delivering tasks, but skipping meetings, fading out of presence. That’s why I never asked for referrals. Not because people disliked me, but because the version of me they saw wasn’t the whole one.</p>
+
+<p>Even though I could deliver, that way of working is selfish and can’t last long.</p>
+
+<p>So, in these months sober, I turned inward and built things. Not for a company, not for deadlines, but for myself — as a way to learn, to stay focused, and to see what I was capable of when I actually showed up.</p>
+
+<p>What I’ve built over the past few months is what I’ll be sharing here. I’m not promising a publishing schedule. I’ll write when I can, but I will publish. For me, this is a way of keeping myself honest. For anyone reading, it’s an invitation to see what I’ve been working on.</p>
+
+<hr />
+
+<h2>From Checklists to Craft</h2>
+
+<p>When I first started optimizing my site, I chased Lighthouse scores like everyone else. Pass the audits, hit 100, move on. But I realized I was treating standards like a checklist, not as part of the craft.</p>
+
+<p>That’s when I started <strong>Wizard Compass</strong> — not just another Lighthouse wrapper, but a tool to explain <em>why</em> each audit matters.</p>
+
+<p>I have mapped the curriculum to match Lighthouse category groups:</p>
+
+<h3>Performance</h3>
+
+<ul>
+<li>Metrics (core scoring metrics)</li>
+<li>Diagnostics (fix opportunities)</li>
+<li>Hidden (supporting “insights”)</li>
+</ul>
+
+<h3>Accessibility (A11y)</h3>
+
+<ul>
+<li>Navigation</li>
+<li>ARIA</li>
+<li>Color &amp; Contrast</li>
+<li>Tables &amp; Lists</li>
+<li>Language</li>
+<li>Best Practices</li>
+<li>A11y (Ungrouped audits)</li>
+</ul>
+
+<h3>Best Practices</h3>
+
+<ul>
+<li>UX</li>
+<li>JavaScript Libraries</li>
+</ul>
+
+<h3>SEO</h3>
+
+<ul>
+<li>Crawl</li>
+</ul>
+
+<p>If you want to receive updates on the course development access <a href="https://wizardcompass.com/">wizardcompass.com</a>, subscribe to the early access list.</p>
+
+<hr />
+
+<h2>Privacy in the Browser</h2>
+
+<p>While digging into audits, I noticed how invisible privacy issues are. So I built a <strong>Chrome extension</strong> that shows what sites are collecting and doing in the background.</p>
+
+<p>I never published it, but it taught me how much is hidden — and how easily developers embed third-party scripts without realizing the trade-offs.</p>
+
+<p>The trickier part was mapping players, so I've leveraged <a href="https://github.com/HTTPArchive/wappalyzer">Wappalyzer</a> data from their last open source version, which HTTP Archive uses to enrich its dataset.</p>
+
+<p>I will write an article about it in detail and open-source the project soon.</p>
+
+<hr />
+
+<h2>Fonts and Readability</h2>
+
+<p>Color contrast checks got me wondering: why do formulas ignore the font itself? JetBrains Mono and Cabin are not the same.</p>
+
+<p>So I started parsing Google Fonts with <code>fonttools</code> and <code>jq</code>, looking at metrics, x-height, and spacing. That became the seed for <strong>Font Lint</strong>.</p>
+
+<p>You can take a look at <a href="https://fontlint.com">fontlint.com</a> and subscribe to be the first to test new font optimization tools and have access to datasets.</p>
+
+<hr />
+
+<h2>Colors and Accessibility</h2>
+
+<p>I love playing with colors, but I wanted palettes that were not only harmonious, but also accessible. I experimented with <strong>Delta E 2000</strong> to ensure that the generated colors were perceptually distinct.</p>
+
+<p>Then I added a <strong>contrast fixer</strong>: it suggests tweaks to color, font size, or weight until the text meets WCAG accessibility standards.</p>
+
+<p><img src="https://local.leopoletto.test/assets/images/posts/contrast-matrix.webp" alt="Contrast Matrix Built by Leonardo Poletto" /></p>
+
+<hr />
+
+<h2>Seeing Differently</h2>
+
+<p>Accessibility isn’t abstract for me — I have high myopia and astigmatism. That’s what led me to simulate <strong>color vision deficiencies (CVDs)</strong>.</p>
+
+<p>I built transformations that show how colors and images look under different impairments, then validated whether the differences were still perceptible.</p>
+
+<p><img src="https://local.leopoletto.test/assets/images/posts/cvd-matrix-before.webp" alt="Contrast Matrix Built by Leonardo Poletto" /></p>
+
+<blockquote>
+  <p>Ratings are calculated by first converting the colors to their simulated counterparts. The simulated values approximate the colors that would be seen by the fully deficient vision of each particular type. The simulated colors are then compared using the <code>DeltaE 2000</code> color difference formula. A color difference value of <code>11</code> or <strong>more</strong> is <strong>considered passing</strong>; anything lower is too similar to distinguish.<br><br>
+  The color difference meters visualize the <code>DeltaE</code> value to indicate how different the colors would appear for each color vision deficiency.<br>
+  <br><small>Source: <a href="https://leonardocolor.io/tools.html">https://leonardocolor.io/tools.html</a></small></p>
+</blockquote>
+
+<p><img src="https://local.leopoletto.test/assets/images/posts/cvd-matrix-after.webp" alt="Contrast Matrix Built by Leonardo Poletto" /></p>
+
+<p>I've explored images, which I will also write about. This is an unseen world by most people, and I intend to share my discoveries.</p>
+
+<hr />
+
+<h2>Next Steps</h2>
+
+<p>This is just the beginning of Open Lab. Each post will unpack one of these projects, with more code, demos, and lessons. I’m not chasing a schedule — I’ll publish as I can. But I will publish.</p>
+    ]]></content>
+</entry>
+            <entry>
+    <id>https://local.leopoletto.test/blog/about/</id>
+    <link type="text/html" rel="alternate" href="https://local.leopoletto.test/blog/about/" />
+    <title>About Me: Building Better Web Foundations</title>
+    <published>2025-08-10T00:00:00+00:00</published>
+    <updated>2025-08-10T00:00:00+00:00</updated>
+    <author>
+        <name>Leonardo Poletto</name>
+    </author>
+    <summary type="html">A technologist focused on improving how the web is built and experienced.
+
+As the founder of WizardCompass, I lead the design and development of tools that transform complex technical audits into actionable insights. My work blends engineering, research, and ethical responsibility—helping developers, designers, and digital teams build faster, more accessible, privacy-respecting, and......</summary>
+    <content type="html"><![CDATA[
+        <h2>Hi there 👋 — I’m <strong>Leonardo Poletto</strong></h2>
+
+<p>A technologist focused on improving how the web is built and experienced.</p>
+
+<p>As the founder of <a href="https://wizardcompass.com">WizardCompass</a>, I lead the design and development of tools that transform complex technical audits into actionable insights. My work blends engineering, research, and ethical responsibility—helping developers, designers, and digital teams build faster, more accessible, privacy-respecting, and standards-compliant websites.</p>
+
+<p>Over the years, I’ve shifted from just shipping websites to <strong>questioning how we build them</strong>—and more importantly, why. Today, my focus is on creating scalable foundations that promote <strong>transparency</strong>, <strong>performance</strong>, <strong>accessibility</strong>, and <strong>user respect by default</strong>.</p>
+
+<p>⸻</p>
+
+<h3>Core Focus Areas:</h3>
+
+<ul>
+<li>Web Accessibility &amp; Compliance (WCAG, ARIA, assistive tech)</li>
+<li>Privacy &amp; Security Headers (CSP, DNT, GDPR)</li>
+<li>Web Performance (Lighthouse, Web Vitals)</li>
+<li>Technical Auditing &amp; Research-Driven Insights</li>
+<li>Developer Education and Documentation Strategy</li>
+</ul>
+
+<p>⸻</p>
+
+<blockquote>
+  <p>Whether I’m refining HTML semantics, debugging a CSP violation, or guiding a team toward better digital practices, <strong>my goal stays the same: build the web—better</strong>.</p>
+</blockquote>
+    ]]></content>
+</entry>
+    </feed>

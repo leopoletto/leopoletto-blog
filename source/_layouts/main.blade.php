@@ -75,7 +75,7 @@
                      src="{{ $page->baseUrl . 'assets/img/profile-resized-240.webp' }}"/>
             </a>
             <span class="transition-all backdrop-blur-md backdrop-saturate-100 backdrop-xs backdrop-brightness-150 w-full aspect-square absolute left-0 top-0 z-20"></span>
-            <span class="bg-[url('/assets/img/profile-q90-w240.webp')] bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
+            <span class="bg-photo bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
         </div>
         <div class="w-fit min-h-max">
             <span>

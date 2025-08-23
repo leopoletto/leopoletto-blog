@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
-  <loc>https://jigsaw.test/categories/open-lab</loc>
-  <lastmod>2025-08-23T12:53:54+00:00</lastmod>
+  <loc>https://leopoletto.dev/categories/open-lab</loc>
+  <lastmod>2025-08-23T13:20:19+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
-  <loc>https://jigsaw.test/blog/about</loc>
-  <lastmod>2025-08-23T12:53:54+00:00</lastmod>
+  <loc>https://leopoletto.dev/blog/about</loc>
+  <lastmod>2025-08-23T13:20:19+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
-  <loc>https://jigsaw.test/blog/open-lab-a-shift-from-checklist-to-craftsmanship</loc>
-  <lastmod>2025-08-23T12:53:54+00:00</lastmod>
+  <loc>https://leopoletto.dev/blog/open-lab-a-shift-from-checklist-to-craftsmanship</loc>
+  <lastmod>2025-08-23T13:20:19+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
-  <loc>https://jigsaw.test/blog/feed.atom</loc>
-  <lastmod>2025-08-23T12:53:54+00:00</lastmod>
+  <loc>https://leopoletto.dev/blog/feed.atom</loc>
+  <lastmod>2025-08-23T13:20:19+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
-  <loc>https://jigsaw.test</loc>
-  <lastmod>2025-08-23T12:53:54+00:00</lastmod>
+  <loc>https://leopoletto.dev</loc>
+  <lastmod>2025-08-23T13:20:19+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
-  <loc>https://jigsaw.test/robots.txt</loc>
-  <lastmod>2025-08-23T12:53:54+00:00</lastmod>
+  <loc>https://leopoletto.dev/robots.txt</loc>
+  <lastmod>2025-08-23T13:20:19+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
 </urlset>

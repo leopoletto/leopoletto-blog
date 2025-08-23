@@ -1,6 +1,6 @@
 {
   "source/_assets/css/main.css": {
-    "file": "assets/main-UoyQt9R6.css",
+    "file": "assets/main-CBzfV34G.css",
     "src": "source/_assets/css/main.css",
     "isEntry": true
   },
@@ -9,5 +9,9 @@
     "name": "main",
     "src": "source/_assets/js/main.js",
     "isEntry": true
+  },
+  "source/_assets/profile-q90-w240.webp": {
+    "file": "assets/profile-q90-w240-P7bWz1wj.webp",
+    "src": "source/_assets/profile-q90-w240.webp"
   }
 }

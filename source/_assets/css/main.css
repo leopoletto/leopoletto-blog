@@ -260,3 +260,7 @@
     }
 }
 
+@utility bg-photo {
+    background-image: url('../profile-q90-w240.webp');
+}
+

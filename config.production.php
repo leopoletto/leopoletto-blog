@@ -2,7 +2,7 @@
 
 return [
     'production' => true,
-    'baseUrl' => 'https://jigsaw.test/',
+    'baseUrl' => 'https://leopoletto.dev/',
     'collections' => [
         'posts' => [
             'getCategories'=> function ($page) {
