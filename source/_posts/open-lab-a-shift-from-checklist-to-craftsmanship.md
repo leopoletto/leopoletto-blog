@@ -93,7 +93,7 @@ I love playing with colors, but I wanted palettes that were not only harmonious,
 
 Then I added a **contrast fixer**: it suggests tweaks to color, font size, or weight until the text meets WCAG accessibility standards.
 
-![Contrast Matrix Built by Leonardo Poletto](assets/images/posts/contrast-matrix.webp)
+![Contrast Matrix Built by Leonardo Poletto](/assets/images/posts/contrast-matrix.webp)
 
 ---
 
@@ -103,14 +103,14 @@ Accessibility isn’t abstract for me — I have high myopia and astigmatism. Th
 
 I built transformations that show how colors and images look under different impairments, then validated whether the differences were still perceptible.
 
-![Contrast Matrix Built by Leonardo Poletto](assets/images/posts/cvd-matrix-before.webp)
+![Contrast Matrix Built by Leonardo Poletto](/assets/images/posts/cvd-matrix-before.webp)
 
 > Ratings are calculated by first converting the colors to their simulated counterparts. The simulated values approximate the colors that would be seen by the fully deficient vision of each particular type. The simulated colors are then compared using the `DeltaE 2000` color difference formula. A color difference value of `11` or **more** is **considered passing**; anything lower is too similar to distinguish.<br><br>
 > The color difference meters visualize the `DeltaE` value to indicate how different the colors would appear for each color vision deficiency.<br>
 > <br><small>Source: [https://leonardocolor.io/tools.html](https://leonardocolor.io/tools.html)</small>
 
 
-![Contrast Matrix Built by Leonardo Poletto](https://local.leopoletto.test/assets/images/posts/cvd-matrix-after.webp)
+![Contrast Matrix Built by Leonardo Poletto](/assets/images/posts/cvd-matrix-after.webp)
 
 I've explored images, which I will also write about. This is an unseen world by most people, and I intend to share my discoveries.  
 
