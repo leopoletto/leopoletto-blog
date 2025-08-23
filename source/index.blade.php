@@ -6,7 +6,7 @@ pagination:
 @extends('_layouts.main')
 
 @section('body')
-    <section class="w-full md:grid grid-cols-12 max-w-4xl px-5 lg:px-0  gap-10 my-5">
+    <section class="w-full md:grid grid-cols-12 max-w-4xl sm:px-5 lg:px-0  gap-10 my-5">
         <section class="col-span-12">
             <header class="w-full flex flex-col gap-3">
                 <h1 class="font-serif tracking-tight block md:px-0 mb-0 md:text-3xl leading-10 text-brand-secondary-300 font-semibold text-3xl">Latest updates</h1>
