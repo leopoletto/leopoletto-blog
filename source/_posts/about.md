@@ -2,7 +2,7 @@
 extends: _layouts.post
 section: content
 title: "About Me: Building Better Web Foundations"
-date: 2025-08-10
+date: 2025-08-22
 description: Learn about my journey as a technologist focused on web standards, accessibility, privacy, and digital ethics.
 featured: true
 published: true

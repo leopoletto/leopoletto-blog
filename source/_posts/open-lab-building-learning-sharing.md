@@ -1,9 +1,9 @@
 ---
 extends: _layouts.post
 section: content
-title: "Open Lab: A Shift from Checklist to Craftsmanship"
-date: 2025-08-18
-description: After seven months of building, I’m back to sharing what I’ve been working on — tools, experiments, and lessons learned along the way.
+title: "Open Lab: Building, Learning, Sharing"
+date: 2025-08-23
+description: "After seven months of building, I’m back to sharing what I’ve been working on — tools, experiments, and lessons learned along the way"
 featured: true
 published: true
 type: post
@@ -11,13 +11,15 @@ image: "about.webp"
 categories: ["open-lab"]
 ---
 
-It’s been seven months since I wrote my last line of code for Student Crowd, the company where I worked for over a year. When I found out my contract wouldn’t be renewed, I did what I’ve always done — what many developers do: dusted off an old blog and started writing again. But this time felt different. I wasn’t just between jobs; I wanted to rethink how I work, learn, and share what I know.
+There’s one side of me that says writing here again is freedom, and another that says it’s pointless — like walking a familiar path that has led nowhere before. Maybe both are true.
 
-Over these past months, I’ve been building. Not for a company, not for deadlines — but for myself. I explored ideas I’ve been carrying for years, turned experiments into small tools, and tested what I’m capable of when I give myself the space to focus deeply.
+But this time, there’s one difference: consistency.
+I’m not making promises to anyone but myself. No publishing schedules, no expectations. Just showing up, writing, and sharing what I’ve been building over these past seven months.
 
-That’s what I want to start sharing here: what I’ve been building, what I’ve learned along the way, and the insights I’ve uncovered. I’m not promising a publishing schedule — I’ll write when I can, but I will publish. For me, this is a way to stay honest and keep track of the work. For anyone reading, it’s an open invitation to follow along.
+It’s been a period of creating tools, experimenting with ideas, and turning research into something tangible. Some of it worked, some of it didn’t, but all of it taught me something worth sharing.
 
----
+That’s what you’ll find here: code, projects, lessons, and insights collected along the way. For me, writing is a way to stay honest with my own work. For anyone reading, it’s an open invitation to follow along — if only to see where this path leads this time.
+
 
 ## From Checklists to Craft
 
@@ -97,9 +99,7 @@ I built transformations that show how colors and images look under different imp
 
 ![Contrast Matrix Built by Leonardo Poletto](/assets/images/posts/cvd-matrix-before.webp)
 
-> Ratings are calculated by first converting the colors to their simulated counterparts. The simulated values approximate the colors that would be seen by the fully deficient vision of each particular type. The simulated colors are then compared using the `DeltaE 2000` color difference formula. A color difference value of `11` or **more** is **considered passing**; anything lower is too similar to distinguish.<br><br>
-> The color difference meters visualize the `DeltaE` value to indicate how different the colors would appear for each color vision deficiency.<br>
-> <br><small>Source: [https://leonardocolor.io/tools.html](https://leonardocolor.io/tools.html)</small>
+> Ratings are calculated by first converting the colors to their simulated counterparts. The simulated values approximate the colors that would be seen by the fully deficient vision of each particular type. The simulated colors are then compared using the `DeltaE 2000` color difference formula. A color difference value of `11` or **more** is **considered passing**; anything lower is too similar to distinguish.<br><br> The color difference meters visualize the `DeltaE` value to indicate how different the colors would appear for each color vision deficiency.<br> <br><em>Source: [https://leonardocolor.io/tools.html](https://leonardocolor.io/tools.html)</em>
 
 
 ![Contrast Matrix Built by Leonardo Poletto](/assets/images/posts/cvd-matrix-after.webp)

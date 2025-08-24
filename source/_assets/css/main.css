@@ -110,12 +110,12 @@
         }
 
         blockquote {
-            @apply w-full pl-10 md:px-10 text-gray-800 mt-12 mb-8;
+            @apply w-full sm:pl-10 md:px-10 text-gray-800 mt-12 mb-8;
 
             & > p {
-                @apply leading-relaxed pt-0 text-xl text-gray-800 relative;
+                @apply leading-relaxed pt-0 sm:text-xl text-gray-800 relative;
                 @apply before:content-['“'] before:text-7xl before:text-brand-secondary-300;
-                @apply before:absolute before:-top-2 before:-left-8;
+                @apply before:float-left before:leading-0 sm:before:float-none sm:before:leading-normal sm:before:absolute sm:before:-top-8 sm:before:-left-12;
 
                 & > em {
                     @apply text-base text-gray-700 block pt-2;
