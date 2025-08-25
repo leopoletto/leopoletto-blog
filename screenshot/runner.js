@@ -58,7 +58,7 @@ const fontSize = args[2] ?? null;
 
         fs.unlinkSync(screenshotPath);
     } catch (e) {
-        console.error(e);
+
     }
 
     await browser.close();

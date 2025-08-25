@@ -14,8 +14,10 @@ class GenerateOpenGraphImage
         $this->run('Open Lab', 'open-lab.webp', $jigsaw->getSourcePath(), 150);
 
         collect($jigsaw->getCollection('posts')->each(function ($page) use ($jigsaw) {
-            $fileInfo = pathinfo($page->image);
-            $this->run($page->title, $fileInfo['filename'], $jigsaw->getSourcePath());
+            if(!$page->image){
+                $fileInfo = pathinfo($page->image);
+                $this->run($page->title, $fileInfo['filename'], $jigsaw->getSourcePath());
+            }
         })->values());
     }
 
