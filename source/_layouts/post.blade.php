@@ -9,7 +9,7 @@
                 @if($page?->cover)
                     <picture>
                         <img src="{{ $page->asset('images/posts/' . $page->cover) }}" class="w-full max-w-5xl mx-auto rounded"
-                             alt="{{ $page->site  }}"/>
+                             alt="{{ $page->siteName  }}"/>
                     </picture>
                 @endif
 

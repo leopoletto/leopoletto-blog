@@ -4,7 +4,7 @@ use Illuminate\Support\Str;
 
 return [
     'baseUrl' => 'https://local.leopoletto.test/',
-    'debug' => false,
+    'debug' => true,
     'production' => false,
     'language' => 'en-US',
 
@@ -186,4 +186,7 @@ return [
         $generalValue = $get($page->general, $key);
         return !empty($generalValue) ? $generalValue : '';
     },
+    'asset' => function($page, $asset) {
+        return $page->baseUrl . $asset;
+    }
 ];

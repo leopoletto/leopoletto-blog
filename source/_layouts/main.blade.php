@@ -41,9 +41,8 @@
     <link href="{{ $page->head('feed:atom') }}" type="application/atom+xml" rel="alternate"
           title="{{ $page->general['siteName'] }} Feed">
 
-    <link rel="preconnect" href="https://cdn.fontlint.com">
-    <link href="https://cdn.fontlint.com/leopoletto/jetbrains-mono.css" rel="stylesheet">
-    <link href="https://cdn.fontlint.com/leopoletto/merriweather.css" rel="stylesheet">
+    <link href="{{ $page->asset('assets/fonts/jetbrains-mono.css') }}" rel="stylesheet">
+    <link href="{{ $page->asset('assets/fonts/merriweather.css')  }}" rel="stylesheet">
 
     @if ($page->production)
     <!-- Plausible Analytics -->
@@ -77,12 +76,12 @@
                      src="{{ str($page->baseUrl)->append($page->general['picture']['src']) }}"/>
             </a>
             <span class="transition-all backdrop-blur-md backdrop-saturate-100 backdrop-xs backdrop-brightness-150 w-full aspect-square absolute left-0 top-0 z-20"></span>
-            <span class="bg-photo bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
+            <span style="background-image: url('{{ $page->asset('assets/img/profile-resized-240.webp')  }}')" class="bg-photo bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
         </div>
         <div class="w-fit min-h-max">
             <span>
                 <a class="font-semibold text-brand-secondary-100 text-3xl font-serif"
-                   href="{{ $page->baseUrl }}">{{ $page->siteName  }}</a>
+                   href="{{ $page->baseUrl }}">{{ $page->general['author']  }}</a>
             </span>
             <div class="mt-5 description">
                 <x-partials.short-about/>
