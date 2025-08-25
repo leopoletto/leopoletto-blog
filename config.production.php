@@ -6,7 +6,7 @@ return [
     'baseUrl' => 'https://leopoletto.dev/',
     'build' => [
         'source' => 'source',
-        'destination' => 'build_prod',
+        'destination' => 'build_production',
     ],
     'collections' => [
         'posts' => [
