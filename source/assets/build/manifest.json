@@ -1,17 +1,57 @@
 {
   "source/_assets/css/main.css": {
-    "file": "assets/main-PEOO0M1g.css",
+    "file": "assets/main-CBlTKBQY.css",
     "src": "source/_assets/css/main.css",
     "isEntry": true
+  },
+  "source/_assets/fonts/JetBrainsMono-Italic.ttf": {
+    "file": "assets/JetBrainsMono-Italic-BF2YSGCb.ttf",
+    "src": "source/_assets/fonts/JetBrainsMono-Italic.ttf"
+  },
+  "source/_assets/fonts/JetBrainsMono-Italic.woff2": {
+    "file": "assets/JetBrainsMono-Italic-PIh-tJIo.woff2",
+    "src": "source/_assets/fonts/JetBrainsMono-Italic.woff2"
+  },
+  "source/_assets/fonts/JetBrainsMono-Regular.ttf": {
+    "file": "assets/JetBrainsMono-Regular-8W0DXcRc.ttf",
+    "src": "source/_assets/fonts/JetBrainsMono-Regular.ttf"
+  },
+  "source/_assets/fonts/JetBrainsMono-Regular.woff2": {
+    "file": "assets/JetBrainsMono-Regular-B4_tsz70.woff2",
+    "src": "source/_assets/fonts/JetBrainsMono-Regular.woff2"
+  },
+  "source/_assets/fonts/Merriweather-Bold.ttf": {
+    "file": "assets/Merriweather-Bold-C8SzbdKE.ttf",
+    "src": "source/_assets/fonts/Merriweather-Bold.ttf"
+  },
+  "source/_assets/fonts/Merriweather-Bold.woff2": {
+    "file": "assets/Merriweather-Bold-DTtz2sBc.woff2",
+    "src": "source/_assets/fonts/Merriweather-Bold.woff2"
+  },
+  "source/_assets/fonts/Merriweather-Italic.ttf": {
+    "file": "assets/Merriweather-Italic-CoQ93vi5.ttf",
+    "src": "source/_assets/fonts/Merriweather-Italic.ttf"
+  },
+  "source/_assets/fonts/Merriweather-Italic.woff2": {
+    "file": "assets/Merriweather-Italic-B2lLKCEb.woff2",
+    "src": "source/_assets/fonts/Merriweather-Italic.woff2"
+  },
+  "source/_assets/fonts/Merriweather-Regular.ttf": {
+    "file": "assets/Merriweather-Regular-CN10vsiH.ttf",
+    "src": "source/_assets/fonts/Merriweather-Regular.ttf"
+  },
+  "source/_assets/fonts/Merriweather-Regular.woff2": {
+    "file": "assets/Merriweather-Regular-COXXcIJk.woff2",
+    "src": "source/_assets/fonts/Merriweather-Regular.woff2"
+  },
+  "source/_assets/img/profile-resized-240.webp": {
+    "file": "assets/profile-resized-240-CMns_KM5.webp",
+    "src": "source/_assets/img/profile-resized-240.webp"
   },
   "source/_assets/js/main.js": {
     "file": "assets/main-3aYh6rfP.js",
     "name": "main",
     "src": "source/_assets/js/main.js",
     "isEntry": true
-  },
-  "source/_assets/profile-q90-w240.webp": {
-    "file": "assets/profile-q90-w240-P7bWz1wj.webp",
-    "src": "source/_assets/profile-q90-w240.webp"
   }
 }

@@ -1,4 +1,6 @@
 @import 'highlight.js/styles/night-owl.min.css';
+@import "../fonts/jetbrains-mono.css";
+@import "../fonts/merriweather.css";
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
@@ -261,6 +263,6 @@
 }
 
 @utility bg-photo {
-    background-image: url('../profile-q90-w240.webp');
+    background-image: url('../img/profile-resized-240.webp');
 }
 

@@ -3,57 +3,52 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{{  $page->title ?: $page->defaultTitle }}</title>
-    <link rel="canonical" href="{{ str($page->getUrl())->beforeLast('/') }}"/>
-    <meta name="description" content="{{ $page->description ?? $page->siteDescription }}">
-    <meta name="author" content="Leonardo Poletto">
+    <!-- Primary Meta -->
+    <title>{{ $page->head('title') }}</title>
+    <link rel="canonical" href="{{ rtrim($page->getUrl(), '/') }}">
+    <meta name="description" content="{{ $page->head('description') }}">
+    <meta name="author" content="{{ $page->head('author') }}">
 
-    <meta name="msapplication-TileColor" content="#0a0033">
-    <meta name="theme-color" content="#0a0033">
-    <meta property="og:title" content="{{ $page->title ?: $page->defaultTitle }}"/>
-    <meta property="og:type" content="{{ $page->type ?? 'website' }}"/>
-    <meta property="og:url" content="{{ str($page->getUrl())->beforeLast('/') }}"/>
-    <meta property="og:locale" content="en"/>
-    @if($page?->image)
-        <meta property="og:image" content="{{$page->baseUrl . 'assets/images/og/' . $page->image}}"/>
-        <meta property="og:logo" content="{{$page->baseUrl . 'assets/images/img/leopoleto.webp'}}"/>
-        <meta property="og:image:alt" content="{{ $page->description ?? $page->siteDescription }}"/>
-    @endif
-    <meta property="og:description" content="{{ $page->description ?? $page->siteDescription }}"/>
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@leopoletto">
-    <meta name="twitter:id" content="@leopoletto">
-    <meta name="twitter:creator" content="@leopoletto.com">
-    <meta name="twitter:domain" content="leopoletto.com">
-    <meta name="twitter:url" content="{{ str($page->getUrl())->beforeLast('/') }}">
-    <meta name="twitter:title" content="{{ $page->title ?: $page->defaultTitle  }}">
-    <meta name="twitter:text:title" content="{{ $page->title ?: $page->defaultTitle  }}">
-    <meta name="twitter:description" content="{{ $page->description ?? $page->siteDescription }}">
-    @if($page?->image)
-        <meta name="twitter:image" content="{{$page->baseUrl . 'assets/images/og/' . $page->image}}">
-        <meta name="twitter:alt" content="{{$page->baseUrl . 'assets/images/og/' . $page->image}}">
-    @endif
-    <link href="{{$page->baseUrl . 'blog/feed.atom' }}" type="application/atom+xml" rel="alternate"
-          title="{{ $page->siteName }} Atom Feed">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{$page->baseUrl . 'favicon/apple-touch-icon.png' }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{$page->baseUrl . 'favicon/favicon-32x32.png' }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{$page->baseUrl . 'favicon/favicon-16x16.png' }}">
-    <link rel="manifest" href="{{$page->baseUrl . 'favicon/site.webmanifest' }}">
-    <link rel="mask-icon" href="{{$page->baseUrl . 'favicon/safari-pinned-tab.svg' }}" color="#0a0033">
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ $page->head('og:title') }}">
+    <meta property="og:type" content="{{ $page->head('og:type') }}">
+    <meta property="og:url" content="{{ rtrim($page->getUrl(), '/')  }}">
+    <meta property="og:locale" content="{{ $page->head('language') }}">
+    <meta property="og:image" content="{{ $page->head('og:image') }}">
+    <meta property="og:logo" content="{{ $page->head('og:logo') }}">
+    <meta property="og:description" content="{{ $page->head('og:description') }}">
+
+    <!-- Twitter / X Meta -->
+    <meta name="twitter:card" content="{{ $page->head('x:card') }}">
+    <meta name="twitter:site" content="{{ $page->head('x:site') }}">
+    <meta name="twitter:creator" content="{{ $page->head('x:creator') }}">
+    <meta name="twitter:title" content="{{ $page->head('x:title') }}">
+    <meta name="twitter:description" content="{{ $page->head('x:description') }}">
+    <meta name="twitter:image" content="{{ $page->head('x:image') }}">
+
+    <!-- Favicons & Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $page->head('favicon:apple') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $page->head('favicon:32') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $page->head('favicon:16') }}">
+    <link rel="mask-icon" href="{{ $page->head('favicon:mask') }}" color="{{ $page->head('manifest:color') }}">
+    <meta name="msapplication-TileColor" content="{{ $page->head('manifest:color') }}">
+    <meta name="theme-color" content="{{ $page->head('manifest:color') }}">
+    <link rel="manifest" href="{{ $page->head('manifest:file') }}">
     <link rel="home" href="{{ str($page->baseUrl)->beforeLast('/') }}">
 
-    <link rel="preconnect" href="https://cdn.fontlint.com">
-    <link href="https://cdn.fontlint.com/leopoletto/jetbrains-mono.css" rel="stylesheet">
-    <link href="https://cdn.fontlint.com/leopoletto/merriweather.css" rel="stylesheet">
+    <!-- Atom Feed -->
+    <link href="{{ $page->head('feed:atom') }}" type="application/atom+xml" rel="alternate"
+          title="{{ $page->general['siteName'] }} Feed">
 
     @if ($page->production)
-    <script defer data-domain="leopoletto.dev" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.tagged-events.js"></script>
+    <!-- Plausible Analytics -->
+    <script defer data-domain="leopoletto.dev"
+            src="https://plausible.io/js/script.file-downloads.hash.outbound-links.tagged-events.js"></script>
     @endif
     @viteRefresh()
     <link rel="stylesheet" href="{{ vite('source/_assets/css/main.css') }}">
+    <!-- External Links Arrow -->
     <style>
         .prose a[href^="http"]:not([href*="{{ $page->baseUrl  }}"])::after {
             opacity: 0.7;
@@ -63,7 +58,6 @@
             content: '↗';
         }
     </style>
-
     <script defer type="module" src="{{ vite('source/_assets/js/main.js') }}"></script>
 </head>
 <body class="min-h-screen bg-white font-sans">
@@ -71,12 +65,12 @@
 <header x-data="{ light: true }" class="py-10 px-5 flex items-center">
     <div class="container items-center justify-center mx-auto flex max-w-6xl flex-col gap-2 md:flex-row md:gap-10">
         <div class="hidden md:block border-2 relative group border-brand-secondary-500/40 rounded-3xl p-2 md:overflow-clip">
-            <a href="{{ str($page->baseUrl)->beforeLast('/') }}"
+            <a href="{{ $page->baseUrl }}"
                :class="{'motion-safe:animate-insight': light}"
                class="relative z-30 rounded-2xl self-baseline md:block md:w-fit md:overflow-clip">
-                <img alt="A detailed headshot of a man with dark hair, light eyes, and stubble, wearing a black turtleneck and looking directly at the camera with a calm expression"
+                <img alt="{{$page->general['picture']['alt']}}"
                      class="-scale-x-100 w-[200px] rounded-2xl md:w-[200px] md:min-w-[200px]"
-                     src="{{ $page->baseUrl . 'assets/img/profile-resized-240.webp' }}"/>
+                     src="{{ str($page->baseUrl)->append($page->general['picture']['src']) }}"/>
             </a>
             <span class="transition-all backdrop-blur-md backdrop-saturate-100 backdrop-xs backdrop-brightness-150 w-full aspect-square absolute left-0 top-0 z-20"></span>
             <span class="bg-photo bg-cover w-full aspect-square absolute left-0 top-0 z-10"></span>
@@ -84,7 +78,7 @@
         <div class="w-fit min-h-max">
             <span>
                 <a class="font-semibold text-brand-secondary-100 text-3xl font-serif"
-                   href="{{ str($page->baseUrl)->beforeLast('/') }}">{{ $page->siteName  }}</a>
+                   href="{{ $page->baseUrl }}">{{ $page->siteName  }}</a>
             </span>
             <div class="mt-5 description">
                 <x-partials.short-about/>

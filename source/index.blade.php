@@ -36,7 +36,7 @@ pagination:
 
                 @foreach ($pagination->pages as $pageNumber => $path)
                     <a
-                            href="{{ $path }}"
+                            href="{{ rtrim($path, '/') }}"
                             title="Go to Page {{ $pageNumber }}"
                             class=" rounded mr-3 px-2 py-2 min-w-12 text-center {{ $pagination->currentPage == $pageNumber ? 'bg-brand-primary-100 text-brand-accent-700' : 'text-brand-primary-100 bg-white border' }}"
                     >{{ $pageNumber }}</a>

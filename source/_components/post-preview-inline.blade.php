@@ -5,7 +5,7 @@
                 @if ($post->categories)
                     @foreach ($post->categories as $i => $category)
                         <li>
-                            <a href="{{ '/categories/' . $category }}/"
+                            <a href="{{ rtrim($post->getUrl(), '/') }}"
                                title="View posts in {{ $category }}"
                                class="capitalize text-lg font-serif text-brand-secondary-300 underline underline-offset-4"
                             >{{ $category }}</a>
@@ -20,7 +20,7 @@
         </div>
         <div class="flex gap-2 flex-col py-4">
             <h2 class="font-serif flex mb-2 self-baseline text-2xl">
-                <a href="{{ $post->getUrl() }}" title="Read more: {{ $post->title }}"
+                <a href="{{ rtrim($post->getUrl(), '/') }}" title="Read more: {{ $post->title }}"
                    class=" text-brand-secondary-100 text-2xl">{{ $post->title }}</a>
             </h2>
             <p class="text-gray-800 text-[17px] leading-loose mb-4">{{ $post->description }}</p>

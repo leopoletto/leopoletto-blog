@@ -7,9 +7,14 @@ description: Learn about my journey as a technologist focused on web standards, 
 featured: true
 published: true
 type: page
-image: "about.webp"
-cover: "about.webp"
 categories: ["open-lab"]
+og_title: "About Me: Building Better Web Foundations"
+og_type: article
+og_description: "Technologist, engineer, and educator focused on improving the way we build and experience the web — from accessibility and performance to privacy and digital ethics."
+og_image: "assets/images/og/about-me-building-better-web-foundations.webp"
+x_title: "About Me: Building Better Web Foundations"
+x_description: "Technologist, engineer, and educator sharing insights on accessibility, performance, privacy, and web standards."
+x_image: "assets/images/og/about-me-building-better-web-foundations.webp"
 ---
 
 ## Hi there 👋 — I’m **Leonardo Poletto**

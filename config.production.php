@@ -2,7 +2,12 @@
 
 return [
     'production' => true,
+    'debug' => false,
     'baseUrl' => 'https://leopoletto.dev/',
+    'build' => [
+        'source' => 'source',
+        'destination' => 'build_production',
+    ],
     'collections' => [
         'posts' => [
             'getCategories'=> function ($page) {

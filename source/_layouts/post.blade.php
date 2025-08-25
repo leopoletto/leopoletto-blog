@@ -6,10 +6,10 @@
             <section class="w-full">
                 <x-post.header :page="$page"/>
 
-                @if($page->cover)
+                @if($page?->cover)
                     <picture>
-                        <img src="/assets/images/posts/{{$page->cover}}" class="w-full max-w-5xl mx-auto rounded"
-                             alt=""/>
+                        <img src="{{ $page->asset('images/posts/' . $page->cover) }}" class="w-full max-w-5xl mx-auto rounded"
+                             alt="{{ $page->site  }}"/>
                     </picture>
                 @endif
 

@@ -3,12 +3,18 @@ extends: _layouts.post
 section: content
 title: "Open Lab: Building, Learning, Sharing"
 date: 2025-08-23
-description: "After seven months of building, I’m back to sharing what I’ve been working on — tools, experiments, and lessons learned along the way"
+description: "After seven months of building, I’m back to sharing what I’ve been working on — tools, experiments, and lessons learned along the way."
 featured: true
 published: true
 type: post
-image: "open-lab-building-learning-sharing.png"
 categories: ["open-lab"]
+og_title: "Open Lab — What I’ve Been Building These Past 7 Months"
+og_type: article
+og_description: "A look behind the scenes: tools, experiments, and insights from seven months of work — and why I’m finally sharing them."
+og_image: "assets/images/og/open-lab-building-learning-sharing.webp"
+x_title: "Open Lab — What I’ve Been Building These Past 7 Months"
+x_description: "Seven months, countless experiments, and tools in the making. Here’s what I’ve been working on — and why it matters."
+x_image: "assets/images/og/open-lab-building-learning-sharing.webp"
 ---
 
 There’s one side of me that says writing here again is freedom, and another that says it’s pointless — like walking a familiar path that has led nowhere before. Maybe both are true.
