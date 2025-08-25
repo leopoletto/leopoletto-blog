@@ -13,8 +13,8 @@ class GenerateOpenGraphImage
         if($jigsaw->getEnvironment() !== 'production'){
             return false;
         }
-        $this->run('Blog', 'home.webp', $jigsaw->getSourcePath(), 150);
-        $this->run('Open Lab', 'open-lab.webp', $jigsaw->getSourcePath(), 150);
+        $this->run('Blog', 'home', $jigsaw->getSourcePath(), 150);
+        $this->run('Open Lab', 'open-lab', $jigsaw->getSourcePath(), 150);
 
         collect($jigsaw->getCollection('posts')->each(function ($page) use ($jigsaw) {
             if(!$page->og_image){
