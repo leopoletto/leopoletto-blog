@@ -4,7 +4,7 @@ use Illuminate\Support\Str;
 
 return [
     'baseUrl' => 'https://local.leopoletto.test/',
-    'debug' => true,
+    'debug' => false,
     'production' => false,
     'language' => 'en-US',
 

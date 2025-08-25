@@ -41,6 +41,10 @@
     <link href="{{ $page->head('feed:atom') }}" type="application/atom+xml" rel="alternate"
           title="{{ $page->general['siteName'] }} Feed">
 
+    link rel="preconnect" href="https://cdn.fontlint.com">
+    <link href="https://cdn.fontlint.com/leopoletto/jetbrains-mono.css" rel="stylesheet">
+    <link href="https://cdn.fontlint.com/leopoletto/merriweather.css" rel="stylesheet">
+
     @if ($page->production)
     <!-- Plausible Analytics -->
     <script defer data-domain="leopoletto.dev"

@@ -10,6 +10,9 @@ class GenerateOpenGraphImage
 {
     public function handle(Jigsaw $jigsaw)
     {
+        if($jigsaw->getEnvironment() !== 'production'){
+            return false;
+        }
         $this->run('Blog', 'home.webp', $jigsaw->getSourcePath(), 150);
         $this->run('Open Lab', 'open-lab.webp', $jigsaw->getSourcePath(), 150);
 
