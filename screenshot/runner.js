@@ -44,7 +44,7 @@ const fontSize = args[2] ?? null;
             element.style.lightHeight = fontSize > 100 ? 0 : '100%';
         }
     }, postTitle, fontSize);
-    
+
     const screenshotPath = path.join('./', '../source/assets/images/og/', `${slug}.png`);
     await page.screenshot({path: screenshotPath, fullPage: true});
 
