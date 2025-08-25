@@ -15,3 +15,4 @@
  */
 
 $events->afterBuild(App\Listeners\GenerateSitemap::class);
+$events->afterBuild(App\Listeners\GenerateOpenGraphImage::class);

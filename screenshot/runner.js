@@ -3,11 +3,10 @@ import path from "path";
 
 const args = process.argv.slice(2);
 const postTitle = args[0] ?? null;
-const description = args[1] ?? null;
-const color = args[2] ?? null;
+const slug = args[1] ?? null;
 
 (async () => {
-    if(postTitle === null || description === null) {
+    if(postTitle === null) {
         console.log("No post title or description provided!");
         return;
     }
@@ -26,15 +25,12 @@ const color = args[2] ?? null;
         element.innerText = postTitle
     }, postTitle);
 
-    await page.$eval('#description', (element, description) => {
-        element.innerText = description
-    }, description);
 
-    const screenshotPath = path.join('./', `screenshoot.png`);
+    const screenshotPath = path.join('./', '../source/assets/images/og/', `${slug}.png`);
     await page.screenshot({path: screenshotPath, fullPage: true});
 
     await browser.close();
-})(postTitle, description, color);
+})(postTitle, slug);
 
 
 

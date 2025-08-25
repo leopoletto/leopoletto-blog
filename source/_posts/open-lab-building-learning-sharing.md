@@ -7,7 +7,7 @@ description: "After seven months of building, I’m back to sharing what I’ve 
 featured: true
 published: true
 type: post
-image: "about.webp"
+image: "open-lab-building-learning-sharing.png"
 categories: ["open-lab"]
 ---
 
