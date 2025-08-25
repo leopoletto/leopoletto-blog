@@ -36,18 +36,15 @@ const fontSize = args[2] ?? null;
     const fileUrl = `file://${filePath}`;
     await page.goto(fileUrl);
 
-    await page.$eval('#title', (element, postTitle) => {
+    await page.$eval('#title', (element, postTitle, fontSize) => {
         element.innerText = postTitle
-    }, postTitle);
 
-    if (fontSize) {
-        await page.$eval('#title', (element, fontSize) => {
+        if(fontSize !== null){
             element.style.fontSize = `${fontSize}px`;
             element.style.lightHeight = fontSize > 100 ? 0 : '100%';
-        }, fontSize);
-    }
-
-
+        }
+    }, postTitle, fontSize);
+    
     const screenshotPath = path.join('./', '../source/assets/images/og/', `${slug}.png`);
     await page.screenshot({path: screenshotPath, fullPage: true});
 
