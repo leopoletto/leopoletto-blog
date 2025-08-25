@@ -9,13 +9,25 @@ const slug = args[1] ?? null;
 const fontSize = args[2] ?? null;
 
 (async () => {
-    if(postTitle === null || slug === null) {
+    if (postTitle === null || slug === null) {
         console.log("No post title or slug provided!");
         return;
     }
 
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: 'new',
+        executablePath: '/usr/bin/google-chrome', // ✅ Force system Chrome
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-gpu',
+            '--disable-software-rasterizer',
+            '--disable-dev-shm-usage',
+            '--disable-extensions',
+        ],
+    });
+
     const page = await browser.newPage();
 
     await page.setViewport({width: 1230, height: 600, deviceScaleFactor: 1.0, hasTouch: false})
@@ -28,7 +40,7 @@ const fontSize = args[2] ?? null;
         element.innerText = postTitle
     }, postTitle);
 
-    if(fontSize) {
+    if (fontSize) {
         await page.$eval('#title', (element, fontSize) => {
             element.style.fontSize = `${fontSize}px`;
             element.style.lightHeight = fontSize > 100 ? 0 : '100%';
