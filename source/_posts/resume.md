@@ -11,10 +11,10 @@ categories: ["open-lab"]
 og_title: "Resume"
 og_type: article
 og_description: "Senior Full-Stack Engineer | Node.js, Laravel, Vue | Performance & Automation"
-og_image: "assets/images/og/about-me-building-better-web-foundations.webp"
+og_image: "assets/images/og/resume.webp"
 x_title: "Resume"
 x_description: "Senior Full-Stack Engineer | Node.js, Laravel, Vue | Performance & Automation"
-x_image: "assets/images/og/about-me-building-better-web-foundations.webp"
+x_image: "assets/images/og/resume.webp"
 ---
 
 
