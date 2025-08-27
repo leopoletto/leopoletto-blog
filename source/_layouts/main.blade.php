@@ -101,6 +101,13 @@
                                 </x-partials.menu-link>
                             </li>
                             <li>
+                                <x-partials.menu-link
+                                        href="{{ str($page->baseUrl)->append('blog/resume')  }}"
+                                        title="Leonardo Poletto's Resume"
+                                >Resume
+                                </x-partials.menu-link>
+                            </li>
+                            <li>
                                 <x-partials.menu-link href="{{ str($page->baseUrl)->append('categories/open-lab')  }}"
                                                       title="Learn more about tools">Open Lab
                                 </x-partials.menu-link>

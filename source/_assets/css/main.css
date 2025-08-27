@@ -192,7 +192,13 @@
             @apply max-w-4xl w-full mx-auto mb-5 inline-block;
         }
 
-        p {
+        li {
+            > code {
+                @apply text-base text-brand-primary-100 break-words bg-brand-secondary-500 py-0.5 px-1 rounded;
+            }
+        }
+
+        p{
             @apply mb-2 text-gray-800  text-[17px]  leading-loose pt-5 mt-2;
 
             & > code {

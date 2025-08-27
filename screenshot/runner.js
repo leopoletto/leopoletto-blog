@@ -4,9 +4,11 @@ import * as child_process from "node:child_process";
 import * as fs from "node:fs";
 
 const args = process.argv.slice(2);
-const postTitle = args[0] ?? null;
-const slug = args[1] ?? null;
-const fontSize = args[2] ?? null;
+
+const isProduction = args[0] ?? null;
+const postTitle = args[1] ?? null;
+const slug = args[2] ?? null;
+const fontSize = args[3] ?? null;
 
 (async () => {
     if (postTitle === null || slug === null) {
@@ -14,8 +16,7 @@ const fontSize = args[2] ?? null;
         return;
     }
 
-
-    const browser = await puppeteer.launch({
+    const setup = isProduction ? {} : {
         headless: 'new',
         executablePath: '/usr/bin/google-chrome', // ✅ Force system Chrome
         args: [
@@ -26,7 +27,9 @@ const fontSize = args[2] ?? null;
             '--disable-dev-shm-usage',
             '--disable-extensions',
         ],
-    });
+    };
+
+    const browser = await puppeteer.launch(setup);
 
     const page = await browser.newPage();
 
@@ -39,7 +42,7 @@ const fontSize = args[2] ?? null;
     await page.$eval('#title', (element, postTitle, fontSize) => {
         element.innerText = postTitle
 
-        if(fontSize !== null){
+        if (fontSize !== null) {
             element.style.fontSize = `${fontSize}px`;
             element.style.lightHeight = fontSize > 100 ? 0 : '100%';
         }
@@ -59,7 +62,7 @@ const fontSize = args[2] ?? null;
     }
 
     await browser.close();
-})(postTitle, slug, fontSize);
+})(isProduction, postTitle, slug, fontSize);
 
 
 

@@ -10,21 +10,19 @@ class GenerateOpenGraphImage
 {
     public function handle(Jigsaw $jigsaw)
     {
-        if($jigsaw->getEnvironment() !== 'production'){
-            return false;
-        }
-        $this->run('Blog', 'home', $jigsaw->getSourcePath(), 150);
-        $this->run('Open Lab', 'open-lab', $jigsaw->getSourcePath(), 150);
+        $isProduction = $jigsaw->getEnvironment() === 'production' ? 1  : 0;
+        $this->run($isProduction, 'Blog', 'home', $jigsaw->getSourcePath(), 150);
+        $this->run($isProduction, 'Open Lab', 'open-lab', $jigsaw->getSourcePath(), 150);
 
-        collect($jigsaw->getCollection('posts')->each(function ($page) use ($jigsaw) {
+        collect($jigsaw->getCollection('posts')->each(function ($page) use ($jigsaw, $isProduction) {
             if($page->og_image){
                 $fileInfo = pathinfo($page->og_image);
-                $this->run($page->title, $fileInfo['filename'], $jigsaw->getSourcePath());
+                $this->run($isProduction, $page->title, $fileInfo['filename'], $jigsaw->getSourcePath());
             }
         })->values());
     }
 
-    private function run($title, $filename, $sourcePath, $fontSize = null)
+    private function run($production, $title, $filename, $sourcePath, $fontSize = null)
     {
         $command = [
             new ExecutableFinder()->find('node', 'node', [
@@ -32,6 +30,7 @@ class GenerateOpenGraphImage
                 '/opt/homebrew/bin',
             ]),
             'runner.js',
+            $production,
             $title,
             $filename,
             $fontSize
