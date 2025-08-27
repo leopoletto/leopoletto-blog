@@ -16,7 +16,7 @@ const fontSize = args[3] ?? null;
         return;
     }
 
-    const setup = isProduction ? {} : {
+    const setup = !isProduction ? {} : {
         headless: 'new',
         executablePath: '/usr/bin/google-chrome', // ✅ Force system Chrome
         args: [
