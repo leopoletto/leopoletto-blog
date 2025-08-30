@@ -5,7 +5,7 @@
     'atom' => $atom,
     'links' => $links,
  ])
-<nav class="mt-4 mb-0 flex items-center gap-5">
+<nav class="mt-4 mb-0 flex flex-col sm:flex-row md:items-center gap-5">
     <ul class="flex gap-3 md:gap-5">
         <li>
             <a href="{{ $github }}"

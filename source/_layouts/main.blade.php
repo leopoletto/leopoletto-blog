@@ -92,8 +92,8 @@
                         atom="{{ str($page->baseUrl)->append('blog/feed.atom') }}"
                 >
                     <x-slot:links>
-                        <ul class="flex gap-3 md:gap-5 ml-3">
-                            <li>
+                        <ul class="flex gap-3 md:gap-5 md:ml-3">
+                            <li class="flex flex-col">
                                 <x-partials.menu-link
                                         href="{{ str($page->baseUrl)->append('blog/about')  }}"
                                         title="About Leonardo Poletto"
